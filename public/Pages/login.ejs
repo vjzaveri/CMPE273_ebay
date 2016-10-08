@@ -1,0 +1,10 @@
+  <div class="row" ng-controller="loginController">
+    <div>
+      <input type="text" ng-model="username"><br>
+      <input type="text" ng-model="password"><br>
+      <button ng-click="login();">Login</button><br>
+      <div ng-hide="error">Invalid Login</div>
+      <div ng-hide="success">Logged IN</div><br>
+      New User: <button ng-click="signUp();">Sign Up</button>
+    </div>
+  </div>

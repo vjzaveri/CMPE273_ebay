@@ -1,0 +1,12 @@
+  <div class="row" ng-controller="newAccountController">
+    <div>
+      
+      <label>First Name:</label><input type="text" ng-model="firstName"><br>
+      <label>Last Name:</label><input type="text" ng-model="lastName"><br>
+      <label>Email Id:</label><input type="text" ng-model="username"><br>
+      <label>Password:</label><input type="text" ng-model="password"><br>
+      <button ng-click="createAccount();">Create Account</button>
+      <div ng-hide="error">Some error occurred</div>
+      <div ng-hide="success">Account Created</div>
+    </div>
+  </div>

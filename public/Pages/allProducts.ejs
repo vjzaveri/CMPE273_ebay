@@ -1,0 +1,24 @@
+  <div class="row" ng-controller="allProducts">
+    <div>
+
+      <table>
+        <tr>
+          <th>Item Name</th>
+          <th>Item Description</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Sold By</th>
+          <th>Add to Cart</th>
+        </tr>
+        <tr ng-repeat="product in allProductsInStock track by $index">
+          <td>{{product.item_name}}</td>
+          <td>{{product.item_description}}</td>
+          <td>{{product.item_price}}</td>
+          <td>{{product.quantity}}</td>
+          <td>{{product.seller_id}}</td>
+          <td><button>Add to Cart</button></td>
+        </tr>
+      </table>
+
+    </div>
+  </div>
