@@ -1,0 +1,13 @@
+<div class="row" ng-controller="checkoutAddress">
+  <label>Address:</label>
+  {{temppppp}}
+  <input type="text" ng-model="address" value={{address}}><br>
+  <input type="text" ng-model="city" value={{city}}><br>
+  <input type="text" ng-model="state" value={{state}}><br>
+  <input type="text" ng-model="country" value={{country}}><br>
+  <input type="text" ng-model="zip" value={{zip}}><br>
+  <input type="text" ng-model="cellNum" value={{cellNum}}><br>
+  <button ng-click="editAddress();">Edit Address</button>
+  <button ng-click="toPayment();">Proceed to Payment</button>
+  <div ng-hide="success">!!</div>
+</div>

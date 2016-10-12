@@ -1,5 +1,5 @@
   <div class="row" ng-controller="allProducts">
-    <div>
+    <div class="col-md-8">
 
       <table>
         <tr>
@@ -10,15 +10,43 @@
           <th>Sold By</th>
           <th>Add to Cart</th>
         </tr>
-        <tr ng-repeat="product in allProductsInStock track by $index">
-          <td>{{product.item_name}}</td>
+        <tr ng-repeat="product in allProductsInStock track by product.item_id">
+          <td><div ng-hide="true">{{product.item_id}}</div>{{product.item_name}}</td>
           <td>{{product.item_description}}</td>
           <td>{{product.item_price}}</td>
           <td>{{product.quantity}}</td>
           <td>{{product.seller_id}}</td>
-          <td><button>Add to Cart</button></td>
+          <td><button ng-click="addToCart(product);">Add to Cart</button></td>
         </tr>
       </table>
+      {{selectedItem}}
+      <div ng-hide="error">Some error occurred</div>
+      <div ng-hide="success">Product Added to Cart!</div>
 
     </div>
+
+    <div class="col-md-4">
+      <table>
+      <tr>
+        <th>Item Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+      <tr ng-repeat="product in shoppingCart track by $index">
+        <td><div ng-hide="false">{{product.cart_id}}</div>{{product.item_name}}</td>
+        <td>{{product.quantity}}</td>
+        <td>{{product.item_price}}</td>
+        <td><button ng-click="removeFromCart(product.cart_id);">Remove</button></td>
+      </tr>
+      </table>
+      <button ng-click="checkout();">Checkout</button>
+    </div>
+
+    <div ng-hide="cartError">
+    <label>Following item(s) is/are no longer in Stock, please remove it from the cart!!</label>
+      <div ng-repeat="items in notAvailableItems track $index">
+        {{items.item_name}}<br>
+      </div>
+    </div>
+
   </div>

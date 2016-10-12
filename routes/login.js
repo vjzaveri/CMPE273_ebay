@@ -1,10 +1,22 @@
 var mysql = require('./mysql');
+var crypto = require('crypto'),
+	algorithm = 'aes-256-ctr',
+	password = 'youcantknowthis';
+
+encrypt = function(input)
+{
+	var cipher = crypto.createCipher(algorithm,password);
+	var crypted = cipher.update(input,'utf8','hex');
+	crypted = crypted + cipher.final('hex');
+	return crypted;
+}
 
 
 exports.checkLogin = function(req, res)
 {
 	var username = req.param("username");
-	var password = req.param("password");
+	var normalPassword = req.param("password");
+	var password = encrypt(normalPassword);
 	var json_responses;
 
 	var checkUser = "select * from customer where email='"+username+"' and password='" +password+ "'";
@@ -60,7 +72,8 @@ exports.checkLogin = function(req, res)
 exports.newUser = function(req,res)
 {
 	var username = req.param("username");
-	var password = req.param("password");
+	var normalPassword = req.param("password");
+	var password = encrypt(normalPassword);
 	var firstName = req.param("firstName");
 	var lastName = req.param("lastName");
 

@@ -157,7 +157,7 @@ exports.sellItem = function(req,res)
 
 exports.displayAllProducts = function(req,res)
 {
-	var getProducts = "SELECT * FROM products";
+	var getProducts = "SELECT * FROM products WHERE quantity > 0";
 
 	mysql.runQuery(function(err,results){
 		if(!err)
@@ -175,4 +175,71 @@ exports.displayAllProducts = function(req,res)
 			res.send(json_responses);
 		}
 	},getProducts);
+}
+
+exports.addToCart = function(req,res)
+{
+	var itemId = req.param("itemId");
+	var email = req.session.username;
+	var quantity = 1;
+	var addToCart = "INSERT INTO shopping_cart (email, item_id, quantity) VALUES ('"+email+"', '"+itemId+"', '"+quantity+"');";
+
+	mysql.runQuery(function(err,results){
+		if(!err)
+		{
+			console.log("Product Added to Cart");
+			json_responses = {"statusCode" : 200};			
+			res.send(json_responses);
+		}
+		else
+		{
+			json_responses = {"statusCode" : 401};
+			res.send(json_responses);
+		}
+	},addToCart);
+}
+
+exports.shoppingCart = function(req,res)
+{
+	var getCart = "SELECT cart_id, item_name, item_price, shopping_cart.quantity AS quantity FROM shopping_cart, products WHERE shopping_cart.item_id=products.item_id AND email = '"+req.session.username+"'";
+
+	mysql.runQuery(function(err,results){
+		if(!err)
+		{
+			console.log("User Shopping Cart Pulled");
+			//var finalResult = JSON.parse(JSON.stringify(results));
+			var finalResult = JSON.stringify(results);
+			json_responses = {"statusCode" : 200, "shoppingCartProducts" : results};
+			
+			res.send(json_responses);
+		}
+		else
+		{
+			json_responses = {"statusCode" : 401};
+			res.send(json_responses);
+		}
+	},getCart);
+}
+
+exports.removeFromCart = function(req,res)
+{
+	var reqCartId = req.param("temp");
+	var removeItemFromCart = "DELETE FROM shopping_cart WHERE cart_id='"+reqCartId+"'";
+
+	mysql.runQuery(function(err,results){
+		if(!err)
+		{
+			console.log("One Item removed from Cart");
+			//var finalResult = JSON.parse(JSON.stringify(results));
+			//var finalResult = JSON.stringify(results);
+			json_responses = {"statusCode" : 200};
+			
+			res.send(json_responses);
+		}
+		else
+		{
+			json_responses = {"statusCode" : 401};
+			res.send(json_responses);
+		}
+	},removeItemFromCart);
 }

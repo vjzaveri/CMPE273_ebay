@@ -10,6 +10,7 @@ var express = require('express')
   , path = require('path');
 var login = require('./routes/login');
 var product = require('./routes/product');
+var checkout = require('./routes/checkout');
 var session = require('client-sessions');
 
 var app = express();
@@ -39,9 +40,17 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/displayAllProducts', product.displayAllProducts);
 
+
 app.post('/checkLogin',login.checkLogin);
 app.post('/newUser', login.newUser);
 app.post('/sellItem', product.sellItem);
+app.post('/addToCart', product.addToCart);
+app.post('/getCart', product.shoppingCart);
+app.post('/removeFromCart', product.removeFromCart);
+app.post('/checkoutShoppingCart', checkout.checkoutShoppingCart);
+app.post('/checkoutAddress', checkout.checkoutAddress);
+app.post('/editAddress', checkout.editAddress);
+app.post('/payAndPurchase', checkout.payAndPurchase);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
