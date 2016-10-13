@@ -12,23 +12,68 @@ app.config(function($routeProvider){
 	})
 
 	.when('/sellItem', {
+		resolve : {
+			"check" : function($rootScope,$location){
+				if(!$rootScope.loggedIn){
+					$location.path('');
+				}
+			}
+		},
 		templateUrl : 'Pages/sellItem.ejs'
 	})
 
 	.when('/allProducts',{
+		resolve : {
+			"check" : function($rootScope,$location){
+				if(!$rootScope.loggedIn){
+					$location.path('');
+				}
+			}
+		},
 		templateUrl : 'Pages/allProducts.ejs'
 	})
 
 	.when('/checkoutAddress',{
+		resolve : {
+			"check" : function($rootScope,$location){
+				if(!$rootScope.loggedIn){
+					$location.path('');
+				}
+			}
+		},
 		templateUrl : 'Pages/checkoutAddress.ejs'
 	})
 
 	.when('/payment',{
+		resolve : {
+			"check" : function($rootScope,$location){
+				if(!$rootScope.loggedIn){
+					$location.path('');
+				}
+			}
+		},
 		templateUrl : 'Pages/payment.ejs'
 	})
 });
 
-app.controller("loginController", function($scope,$http,$location){
+app.controller("mainPageController", function($scope,$http,$location,$rootScope){
+
+	//$scope.loggedIn = !$rootScope.loggedIn;
+
+	$scope.signIn = function(){
+		$location.path('');
+	}
+
+	$scope.signUp = function(){
+		$location.path('/signUp');
+	}
+
+});
+
+
+
+
+app.controller("loginController", function($scope,$http,$location,$rootScope){
 	
 	$scope.error = true;
 	$scope.success = true;
@@ -48,6 +93,9 @@ app.controller("loginController", function($scope,$http,$location){
 			else
 				{
 					$scope.success = false;
+					$rootScope.loggedIn = true;
+					alert("Login Successfull!!");
+					$location.path('allProducts');
 				}
 				//Making a get call to the '/redirectToHomepage' API
 				//window.location.assign("/homepage"); 

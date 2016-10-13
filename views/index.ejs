@@ -13,11 +13,29 @@
 <!-- Loading the AngularJS file from /public/angularJS folder -->
 	<script src="angularjs/mainController.js"></script>
   </head>
-  <body ng-app="mainApp">
+  <body ng-app="mainApp" ng-controller="mainPageController">
 
-  <div class="container-fluid">
-  <h1>ebay</h1>
+  <div class="container">
+  <div class="row">
+    <div class="col-md-1">
+      <img src="./stylesheets/ebayLogo.png" style="width: 122px; height: 50px">
+    </div>
+    <div class="col-md-1" style="padding-left: 35px;">
+      <button class="btn btn-lg btn-link" ng-click="signIn();">Sign In</button>
+    </div>
+    <div class="col-md-1">
+      <button class="btn btn-lg btn-link" ng-click="signUp();">Register</button>
+    </div>
+    <div class="col-md-6"></div>
+    <div class="col-md-3"> 
+      <span class="pull-right"><button class="btn btn-lg btn-link" ng-click="">My eBay</button></span>
+      <div ng-show="loggedIn"><button class="btn btn-lg btn-link" ng-click="showAccount();">My Account</button></div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <!--<ng-view></ng-view>-->
   	<div ng-view></div>
+  </div>
   </div>
 
   </body>

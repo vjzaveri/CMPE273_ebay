@@ -1,4 +1,5 @@
 var mysql = require('./mysql');
+var schedule = require('node-schedule');
 
 exports.sellItem = function(req,res)
 {
@@ -6,14 +7,14 @@ exports.sellItem = function(req,res)
 	var itemDescription = req.param("itemDescription");
 	var itemPrice = req.param("itemPrice");
 	var quantity = req.param("quantity");
-	var buyNow = !req.param("buyNow");
+	var buyNow = req.param("buyNow");
 	if(buyNow)
 	{
-		buyNow=1;
+		buyNow=0;
 	}
 	else
 	{
-		buyNow=0;
+		buyNow=1;
 	}
 	var initialBidding = req.param("initialBidding");
 	var maxBidder = req.session.username;
@@ -34,54 +35,76 @@ exports.sellItem = function(req,res)
 	var json_responses={"statusCode": 200};
 
 	//create the query to insert this data and also create a query to create an timely event for 4 days bidding.
-	var insertProduct = "INSERT INTO products (item_id, item_name, item_description, seller_id, item_price, quantity, buy_now, max_bid, max_bidder, category, timestamp) VALUES ('"+itemId+"', '"+itemName+"', '"+itemDescription+"', '"+maxBidder+"', '"+itemPrice+"', '"+quantity+"', '"+buyNow+"', '"+initialBidding+"', '"+maxBidder+"', '', '"+timeOfAdvertisement+"')";
+	if(buyNow == 0)
+	{
+		var insertProduct = "INSERT INTO products (item_id, item_name, item_description, seller_id, item_price, quantity, buy_now, max_bid, max_bidder, category, timestamp) VALUES ('"+itemId+"', '"+itemName+"', '"+itemDescription+"', '"+maxBidder+"', '"+itemPrice+"', '"+quantity+"', '"+buyNow+"', '"+initialBidding+"', '"+maxBidder+"', '', '"+timeOfAdvertisement+"')";
+	}
+	else
+	{
+		var insertProduct = "INSERT INTO products (item_id, item_name, item_description, seller_id, item_price, quantity, buy_now, timestamp) VALUES ('"+itemId+"', '"+itemName+"', '"+itemDescription+"', '"+maxBidder+"', '"+itemPrice+"', '"+quantity+"', '"+buyNow+"', '"+timeOfAdvertisement+"')";
+	}
 
 	mysql.runQuery(function(err,results){
 		if(!err)
 		{
 			console.log("Advertisement Posted with itemId:"+itemId);
-			var tempMonth = parseInt(month);
-			if(tempMonth==1 || tempMonth==3 || tempMonth==5 || tempMonth==7 || tempMonth==8 || tempMonth==10)
+			if(buyNow == 0)
 			{
-				if(parseInt(date)>=28)
+				var tempMonth = parseInt(month);
+				if(tempMonth==1 || tempMonth==3 || tempMonth==5 || tempMonth==7 || tempMonth==8 || tempMonth==10)
 				{
-					tempMonth++;
-					date = (parseInt(date)+4)%31;
-				}
-				else
-				{
-					date = parseInt(date)+4;
-				}
-			}
-			else if(tempMonth==12)
-			{
-				if(parseInt(date)>=28)
-				{
-					tempMonth=1;
-					year = parseInt(year)+1;
-					date = (parseInt(date)+4)%31;
-				}
-				else
-				{
-					date = parseInt(date)+4;
-				}
-			}
-			else if(tempMonth==2)
-			{
-				if(parseInt(year)%4==0)
-				{
-					if(parseInt(year)%100==0)
+					if(parseInt(date)>=28)
 					{
-						if(parseInt(year)%400==0)
+						tempMonth++;
+						date = (parseInt(date)+4)%31;
+					}
+					else
+					{
+						date = parseInt(date)+4;
+					}
+				}
+				else if(tempMonth==12)
+				{
+					if(parseInt(date)>=28)
+					{
+						tempMonth=1;
+						year = parseInt(year)+1;
+						date = (parseInt(date)+4)%31;
+					}
+					else
+					{
+						date = parseInt(date)+4;
+					}
+				}
+				else if(tempMonth==2)
+				{
+					if(parseInt(year)%4==0)
+					{
+						if(parseInt(year)%100==0)
 						{
-							if(parseInt(date)>=25)
+							if(parseInt(year)%400==0)
 							{
-								tempMonth++;
-								date = (parseInt(date)+4)%29;
+								if(parseInt(date)>=25)
+								{
+									tempMonth++;
+									date = (parseInt(date)+4)%29;
+								}
+								else
+								{
+									date = parseInt(date)+4;
+								}
 							}
 							else
 							{
-								date = parseInt(date)+4;
+								if(parseInt(date)>=24)
+								{
+									tempMonth++;
+									date = (parseInt(date)+4)%28;
+								}
+								else
+								{
+									date = parseInt(date)+4;
+								}
 							}
 						}
 						else
@@ -112,37 +135,48 @@ exports.sellItem = function(req,res)
 				}
 				else
 				{
-					if(parseInt(date)>=24)
+					if(parseInt(date)>=27)
 					{
 						tempMonth++;
-						date = (parseInt(date)+4)%28;
+						date = (parseInt(date)+4)%30;
 					}
 					else
 					{
 						date = parseInt(date)+4;
 					}
 				}
-			}
-			else
-			{
-				if(parseInt(date)>=27)
-				{
-					tempMonth++;
-					date = (parseInt(date)+4)%30;
-				}
-				else
-				{
-					date = parseInt(date)+4;
-				}
-			}
 
-			month = tempMonth;
-
-			var createEvent = "CREATE EVENT "+maxBidder+"_"+itemId+" ON SCHEDULE AT '"+year+"-"+month+"-"+date+" "+hour+":"+minute+":"+second+"' DO BEGIN  END               ";
-			//create logic for event-- pending
-			json_responses = {"statusCode" : 200};
-			
-			res.send(json_responses);
+				month = tempMonth;
+				var fixedFinaldate = new Date(year,month-1,date,hour,minute,second);
+				var newCron = schedule.scheduleJob(fixedFinaldate,function(){
+					console.log("Cron Job executed for date:"+fixedFinaldate);
+					
+					var updateSellingInfo = "INSERT INTO selling_info (email, item_id, quantity, price) VALUES ((SELECT seller_id FROM products WHERE item_id = '"+item_id+"'), '"+item_id+"', '"+quantity+"', '"+itemPrice+"')";
+					var updatePurchaseInfo = "INSERT INTO purchase_info (email, item_id, quantity, price, credit_card_number) VALUES ((SELECT max_bidder FROM products WHERE item_id = '"+itemId+"'), '"+item_id+"', '"+quantity+"', '"+itemPrice+"', '');";
+					var delFromProducts = "DELETE FROM products WHERE item_id = '"+item_id+"'";
+					mysql.runQuery(function(err,result){
+						if(!err)
+						{
+							mysql.runQuery(function(err,results){
+								if(!err)
+								{
+									mysql.runQuery(function(err,result){
+										if(!err)
+										{
+											Console.log("Job Executed!!");
+										}
+									},delFromProducts);
+								}
+							},updatePurchaseInfo);
+						}
+					},updateSellingInfo);
+				});
+				//var createEvent = "CREATE EVENT "+maxBidder+"_"+itemId+" ON SCHEDULE AT '"+year+"-"+month+"-"+date+" "+hour+":"+minute+":"+second+"' DO BEGIN  END               ";
+				//create logic for event-- pending
+				json_responses = {"statusCode" : 200};
+				
+				res.send(json_responses);
+			}
 		}
 		else
 		{

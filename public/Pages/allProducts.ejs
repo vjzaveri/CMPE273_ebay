@@ -16,7 +16,7 @@
           <td>{{product.item_price}}</td>
           <td>{{product.quantity}}</td>
           <td>{{product.seller_id}}</td>
-          <td><button ng-click="addToCart(product);">Add to Cart</button></td>
+          <td><button ng-if="product.buy_now" ng-click="addToCart(product);">Add to Cart</button><button ng-if="!product.buy_now" ng-click="addMaxBid(product);">Place Bid   </button></td>
         </tr>
       </table>
       {{selectedItem}}
