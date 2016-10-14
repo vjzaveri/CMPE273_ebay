@@ -60,12 +60,54 @@ app.controller("mainPageController", function($scope,$http,$location,$rootScope)
 
 	//$scope.loggedIn = !$rootScope.loggedIn;
 
+	init();
+
+	function init(){
+		$http({
+			method : "POST",
+			url : '/checkSession',
+			data : {
+			}
+		}).success(function(data) {
+			if (data.statusCode == 401) {
+				$rootScope.loggedIn = false;
+			}
+			else
+				{
+					$rootScope.loggedIn = true;
+				}
+		}).error(function(error) {
+			$rootScope.loggedIn = false;
+		});
+	}
+
+	//$rootScope.loggedIn = false;
 	$scope.signIn = function(){
 		$location.path('');
 	}
 
 	$scope.signUp = function(){
 		$location.path('/signUp');
+	}
+
+	$scope.logout = function(){
+		$http({
+			method : "POST",
+			url : '/logout',
+			data : {
+			}
+		}).success(function(data) {
+			if (data.statusCode == 401) {
+				$rootScope.loggedIn = true;
+			}
+			else
+				{
+					$rootScope.loggedIn = false;
+					$location.path('');
+				}
+		}).error(function(error) {
+			$rootScope.loggedIn = true;
+		});
 	}
 
 });
@@ -93,6 +135,7 @@ app.controller("loginController", function($scope,$http,$location,$rootScope){
 			else
 				{
 					$scope.success = false;
+					$rootScope.lliTime = data.lastLogInTime;
 					$rootScope.loggedIn = true;
 					alert("Login Successfull!!");
 					$location.path('allProducts');
@@ -192,12 +235,10 @@ app.controller("allProducts", function($scope,$http,$location){
 		}).success(function(data) {
 			//checking the response data for statusCode
 			if (data.statusCode == 401) {
-				$scope.error = false;
 			}
 			else
 				{
 					$scope.shoppingCart = data.shoppingCartProducts;
-					$scope.success = false;	
 				}
 				//Making a get call to the '/redirectToHomepage' API
 				//window.location.assign("/homepage"); 
@@ -220,9 +261,7 @@ app.controller("allProducts", function($scope,$http,$location){
 				$scope.error = false;
 			}
 			else
-				{
-					$scope.success = false;	
-					//for(var i=0;i<data.allProducts.length;i++)
+				{	//for(var i=0;i<data.allProducts.length;i++)
 					//{
 					//	$scope.allProductsInStock.push(data.allProducts[i]);
 					//}
@@ -232,7 +271,6 @@ app.controller("allProducts", function($scope,$http,$location){
 				//Making a get call to the '/redirectToHomepage' API
 				//window.location.assign("/homepage"); 
 		}).error(function(error) {
-			$scope.error = false;
 		});
 
 		$scope.getCart();
@@ -240,6 +278,8 @@ app.controller("allProducts", function($scope,$http,$location){
 
 
 	$scope.addToCart = function(product){
+		$scope.success = true;
+		$scope.error = true;
 		$scope.selectedItem = product.item_id;
 		$http({
 			method : "POST",
@@ -265,6 +305,8 @@ app.controller("allProducts", function($scope,$http,$location){
 	};
 
 	$scope.removeFromCart = function(cartId){
+		$scope.success = true;
+		$scope.error = true;
 		$scope.temp = cartId;
 		$http({
 			method : "POST",
@@ -276,12 +318,10 @@ app.controller("allProducts", function($scope,$http,$location){
 		}).success(function(data) {
 			//checking the response data for statusCode
 			if (data.statusCode == 401) {
-				$scope.error = false;
 			}
 			else
 				{
 					$scope.getCart();
-					$scope.success = false;	
 				}
 				//Making a get call to the '/redirectToHomepage' API
 				//window.location.assign("/homepage"); 
@@ -321,6 +361,38 @@ app.controller("allProducts", function($scope,$http,$location){
 */
 	};
 
+	$scope.bidError = true;
+	$scope.bidSuccess = true;
+
+	$scope.addMaxBid = function(item,maxBid){
+		$scope.bidError = true;
+		$scope.bidSuccess = true;
+		$scope.tempItemId = item.item_id;
+		$scope.maxBid = item.category;
+		$http({
+			method : "POST",
+			url : '/placeBid',
+			data : {
+				"itemId" : $scope.tempItemId,
+				"maxBid" : $scope.maxBid
+			}
+		}).success(function(data) {
+			//checking the response data for statusCode
+			if (data.statusCode == 401) {
+				$scope.bidError = false;
+			}
+			else
+				{
+					$scope.getCart();
+					$scope.bidSuccess = false;
+				}
+				//Making a get call to the '/redirectToHomepage' API
+				//window.location.assign("/homepage"); 
+		}).error(function(error) {
+			$scope.error = false;
+		});
+	}
+
 });
 
 app.controller("checkoutAddress",function($scope,$http,$location){
@@ -340,7 +412,6 @@ app.controller("checkoutAddress",function($scope,$http,$location){
 			}
 			else
 				{
-					$scope.success = false;	
 					$scope.userAddress = data.userDetails[0];
 					$scope.address = $scope.userAddress.address;
 					$scope.city = $scope.userAddress.city;
@@ -392,6 +463,7 @@ app.controller("checkoutAddress",function($scope,$http,$location){
 
 app.controller("paymentController",function($scope,$http){
 
+	$scope.error = true;
 	$scope.finalPage = function(){
 		$scope.cardNumber;
 		$http({

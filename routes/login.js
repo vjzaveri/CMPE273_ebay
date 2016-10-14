@@ -18,7 +18,7 @@ exports.checkLogin = function(req, res)
 	var normalPassword = req.param("password");
 	var password = encrypt(normalPassword);
 	var json_responses;
-
+	var lastLogInTime;
 	var checkUser = "select * from customer where email='"+username+"' and password='" +password+ "'";
 
 	mysql.runQuery(function(err,results){
@@ -27,18 +27,22 @@ exports.checkLogin = function(req, res)
 			if(results.length > 0)
 			{
 
-				//Retrieve last logged in time before, write logic here
-				var todayDate = new Date();
-				var year = todayDate.getFullYear();
-				var month = parseInt(todayDate.getMonth())+1;
-				var date = todayDate.getDate();
-				var hour = todayDate.getHours();
-				var minute = todayDate.getMinutes();
-				var second = todayDate.getSeconds();
-				var lastLoggedInTime = year+"-"+month+"-"+date+" "+hour+":"+minute+":"+second;
-				console.log("Todays Date:"+todayDate);
-				var setLastLoggedInTime = "UPDATE customer SET last_logged_in='"+lastLoggedInTime+"' WHERE email='"+username+"'";
-				mysql.runQuery(function(err,results){
+				var getLastLogInTime = "select last_logged_in from customer where email='"+username+"' and password='" +password+ "'";
+
+				mysql.runQuery(function(err, result){
+					lastLogInTime = result[0].last_logged_in;
+
+					var todayDate = new Date();
+					var year = todayDate.getFullYear();
+					var month = parseInt(todayDate.getMonth())+1;
+					var date = todayDate.getDate();
+					var hour = todayDate.getHours();
+					var minute = todayDate.getMinutes();
+					var second = todayDate.getSeconds();
+					var lastLoggedInTime = year+"-"+month+"-"+date+" "+hour+":"+minute+":"+second;
+					console.log("Todays Date:"+todayDate);
+					var setLastLoggedInTime = "UPDATE customer SET last_logged_in='"+lastLoggedInTime+"' WHERE email='"+username+"'";
+					mysql.runQuery(function(err,results){
 					if(!err)
 					{
 						console.log("Timestamp Stored");
@@ -51,8 +55,9 @@ exports.checkLogin = function(req, res)
 
 				req.session.username = username;
 				console.log("Session initialized");
-				json_responses = {"statusCode" : 200};
+				json_responses = {"statusCode" : 200, "lastLogInTime" : lastLogInTime};
 				res.send(json_responses);
+				},getLastLogInTime);				
 			}
 			else
 			{
@@ -93,4 +98,29 @@ exports.newUser = function(req,res)
 			res.send(json_responses);
 		}
 	},newUser);
+}
+
+exports.checkSession = function(req,res)
+{
+	var json_responses;
+	if(req.session.username)
+	{
+		json_responses = {"statusCode" : 200};
+		console.log("Session exists");
+		res.send(json_responses);
+	}
+	else
+	{
+		json_responses = {"statusCode" : 401};
+		res.send(json_responses);
+	}
+}
+
+exports.logout = function(req,res)
+{
+	var json_responses;
+	req.session.destroy();
+	console.log("Session Destroyed"+req.session.username);
+	json_responses = {"statusCode" : 200};
+	res.send(json_responses);
 }

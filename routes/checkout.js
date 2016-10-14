@@ -120,9 +120,18 @@ exports.checkoutShoppingCart = function(req,res)
 
 exports.payAndPurchase = function(req,res)
 {
-	var cardNumber = req.param("cardNumber");
+	var cardNumber = ""+req.param("cardNumber");
+	var regex = new RegExp("^[0-9]{16}$");
 	console.log("cardnumber:"+cardNumber);
 	var username = req.session.username;
+	var json_responses;
+	if(!regex.test(cardNumber))
+	{
+		json_responses = {"statusCode" : 401};
+		res.send(json_responses);
+	}
+	else
+	{
 
 	var getShoppingCart = "SELECT * FROM shopping_cart WHERE email = '"+username+"'";
 
@@ -138,6 +147,7 @@ exports.payAndPurchase = function(req,res)
 				console.log("Inside for");
 				var oldQuantity;
 				var subQ = parseInt(results[i].quantity);
+				console.log("Cart Id"+results[i].cart_id);
 				//var getProductQuantity = "SELECT quantity FROM products WHERE item_id = '"+results[i].item_id+"'";
 				var updateQuantity = "UPDATE products SET quantity = quantity - '"+subQ+"' WHERE item_id = '"+results[i].item_id+"'";
 				var sellingInfo = "INSERT INTO selling_info (email, item_id, quantity, price) VALUES ((SELECT seller_id FROM products WHERE item_id = '"+results[i].item_id+"'), '"+results[i].item_id+"', '"+subQ+"', (SELECT item_price FROM products WHERE item_id = '"+results[i].item_id+"'));";
@@ -147,17 +157,35 @@ exports.payAndPurchase = function(req,res)
 					if(!err)
 						{
 							console.log("Result of query 1:"+result);
+							mysql.runQuery(function(err,resultt){
+								mysql.runQuery(function(err,resultt){
+									mysql.runQuery(function(err,resultt){
+
+									},emptyShoppingCart);},purchaseInfo);},sellingInfo);
 						}
 					else
 						{
 						console.log("Pochyo");
 						}
 					},updateQuantity);
-				mysql.runQuery(function(err,resultt){},sellingInfo);
-				mysql.runQuery(function(err,resultt){},purchaseInfo);
-				mysql.runQuery(function(err,resultt){},emptyShoppingCart);
+				//mysql.runQuery(function(err,resultt){
+				//	mysql.runQuery(function(err,resultt){
+				//		mysql.runQuery(function(err,resultt){
+//
+				//		},emptyShoppingCart);},purchaseInfo);},sellingInfo);
+				
+				
 			}
+			json_responses = {"statusCode" : 200};
+			res.send(json_responses);
+		}
+		else
+		{
+			json_responses = {"statusCode" : 401};
+			res.send(json_responses);
 		}
 
 	},getShoppingCart);
+
+	}
 }

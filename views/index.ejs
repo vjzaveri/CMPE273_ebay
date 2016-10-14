@@ -28,9 +28,19 @@
     </div>
     <div class="col-md-6"></div>
     <div class="col-md-3"> 
-      <span class="pull-right"><button class="btn btn-lg btn-link" ng-click="">My eBay</button></span>
-      <div ng-show="loggedIn"><button class="btn btn-lg btn-link" ng-click="showAccount();">My Account</button></div>
+      <span class="pull-right">
+      <div ng-show="loggedIn" class="dropdown">
+      <button href="#" class="dropdown-toggle btn btn-lg btn-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My eBay <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <li><button class="btn btn-lg btn-link" ng-click="">View Profile</button></li>
+        <li><button class="btn btn-lg btn-link" ng-click="logout();">Logout</button></li>
+      </ul>
+      </div>
+      </span>
     </div>
+  </div>
+  <div class="row" ng-show="loggedIn">
+    <div class="pull-right"><h6 style="font-weight: bold;">Last Logged in @ {{lliTime}}</h6></div>
   </div>
   <div class="col-md-12">
     <!--<ng-view></ng-view>-->

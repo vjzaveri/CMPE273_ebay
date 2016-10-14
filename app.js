@@ -51,6 +51,9 @@ app.post('/checkoutShoppingCart', checkout.checkoutShoppingCart);
 app.post('/checkoutAddress', checkout.checkoutAddress);
 app.post('/editAddress', checkout.editAddress);
 app.post('/payAndPurchase', checkout.payAndPurchase);
+app.post('/checkSession', login.checkSession);
+app.post('/logout', login.logout);
+app.post('/placeBid', product.placeBid);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

@@ -148,6 +148,7 @@ exports.sellItem = function(req,res)
 
 				month = tempMonth;
 				var fixedFinaldate = new Date(year,month-1,date,hour,minute,second);
+				console.log("Fixedfinaldate:"+fixedFinaldate);
 				var newCron = schedule.scheduleJob(fixedFinaldate,function(){
 					console.log("Cron Job executed for date:"+fixedFinaldate);
 					
@@ -276,4 +277,41 @@ exports.removeFromCart = function(req,res)
 			res.send(json_responses);
 		}
 	},removeItemFromCart);
+}
+
+exports.placeBid = function(req,res)
+{
+	var tempItemId = req.param("itemId");
+	var maxBid = req.param("maxBid");
+	var json_responses;
+	var bidQuery = "UPDATE products SET max_bid='"+maxBid+"', max_bidder='"+req.session.username+"' WHERE item_id='"+tempItemId+"'";
+	var oldBid = "SELECT max_bid FROM products WHERE item_id='"+tempItemId+"'";
+
+	mysql.runQuery(function(err,results){
+		if(!err)
+		{
+			//console.log("Bid Placed for item: "+tempItemId);
+			//json_responses = {"statusCode" : 200};
+			//res.send(json_responses);
+
+			if(maxBid > parseInt(results[0].max_bid))
+			{
+				mysql.runQuery(function(err,result){
+					console.log("Bid Placed for item: "+tempItemId);
+					json_responses = {"statusCode" : 200};
+					res.send(json_responses);
+				},bidQuery);
+			}
+			else
+			{
+				json_responses = {"statusCode" : 200};
+				res.send(json_responses);
+			}
+		}
+		else
+		{
+			json_responses = {"statusCode" : 401};
+			res.send(json_responses);
+		}
+	},oldBid);
 }

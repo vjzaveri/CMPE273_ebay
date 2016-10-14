@@ -1,17 +1,18 @@
-  <div class="row" ng-controller="loginController" style="margin-top: 50px;">
+  <div class="row" ng-controller="loginController" style="margin-top: 100px;">
   <div class="col-md-4"></div>
     <div class="col-md-4">
     <div class="panel panel-primary">
       <div class="panel-heading">Login</div>
       <div class="panel-body form-group">
+      <form>
       <table>
       <tr>
         <td style="padding-bottom: 15px; padding-right: 10px;"><label>Username:</label></td>
-        <td style="padding-left: : 20px; padding-bottom: 20px; column-width: 300px;"><input type="text" ng-model="username"></td>
+        <td style="padding-left: : 20px; padding-bottom: 20px; column-width: 300px;"><input type="text" ng-model="username" required="required" autofocus="autofocus"></td>
       </tr>
       <tr>
         <td style="padding-bottom: 15px; padding-right: 10px;"><label>Password:</label></td>
-        <td style="padding-left: : 20px; padding-bottom: 20px;"><input type="password" ng-model="password"></td>
+        <td style="padding-left: : 20px; padding-bottom: 20px;"><input type="password" ng-model="password" required="required" autofocus="autofocus"></td>
       </tr>
       <tr colspan=2>
         <td style="text-align: center;" colspan="2"><button class="btn btn-lg btn-primary" ng-click="login();">Login</button></td>
@@ -24,6 +25,7 @@
         <td colspan="2"><div ng-hide="error" class="alert alert-danger">Invalid Username or Password</div><br></td>
       </tr>
     </table>
+    </form>
       </div>
     </div>
     <!--<table>
