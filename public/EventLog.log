@@ -1,0 +1,208 @@
+{"level":"info","message":"First Log","timestamp":"2016-10-16T02:45:23.906Z"}
+{"level":"info","message":"Session destroyed for user: undefined","timestamp":"2016-10-16T03:02:56.337Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-10-16T03:03:01.001Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-10-16T03:03:01.210Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-10-16T05:24:26.460Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-10-16T05:24:26.989Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-10-16T05:24:28.217Z"}
+{"level":"info","message":"User: admin placed a Bid of: 1250 on Item with ID: admin_11_18_30_2_775","timestamp":"2016-10-16T05:24:42.122Z"}
+{"level":"info","message":"Product added to cart for User: admin having Item ID: admin_13_17_29_21_10","timestamp":"2016-10-16T05:24:47.458Z"}
+{"level":"info","message":"Item removed from Shopping cart for user: admin having the Cart ID: 60","timestamp":"2016-10-16T05:24:52.871Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-10-16T05:24:59.818Z"}
+{"level":"info","message":"User: admin purchased his cart with credit cart: 2222222222222222","timestamp":"2016-10-16T05:25:14.786Z"}
+{"level":"info","message":"User: admin purchased his cart with credit cart: 2222222222222222","timestamp":"2016-10-16T05:25:14.796Z"}
+{"level":"info","message":"New user created with username: harry@potter.com","timestamp":"2016-10-16T05:39:27.636Z"}
+{"level":"info","message":"Session initialized for user: harry@potter.com","timestamp":"2016-10-16T05:39:37.801Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: harry@potter.com","timestamp":"2016-10-16T05:39:37.892Z"}
+{"level":"info","message":"All products Pulled from Database for user: harry@potter.com","timestamp":"2016-10-16T05:39:39.471Z"}
+{"level":"info","message":"Product added to cart for User: harry@potter.com having Item ID: admin_13_16_53_25_696","timestamp":"2016-10-16T05:39:43.998Z"}
+{"level":"info","message":"Product added to cart for User: harry@potter.com having Item ID: admin_13_17_21_29_442","timestamp":"2016-10-16T05:39:46.080Z"}
+{"level":"info","message":"Product added to cart for User: harry@potter.com having Item ID: admin_13_17_29_21_10","timestamp":"2016-10-16T05:39:47.911Z"}
+{"level":"info","message":"Product added to cart for User: harry@potter.com having Item ID: admin_15_16_19_17_907","timestamp":"2016-10-16T05:39:49.506Z"}
+{"level":"info","message":"Item removed from Shopping cart for user: harry@potter.com having the Cart ID: 63","timestamp":"2016-10-16T05:39:52.152Z"}
+{"level":"info","message":"User: harry@potter.com placed a Bid of: 1011 on Item with ID: admin_11_18_30_2_900","timestamp":"2016-10-16T05:39:59.727Z"}
+{"level":"info","message":"Product added to cart for User: harry@potter.com having Item ID: admin_13_16_53_25_696","timestamp":"2016-10-16T05:40:02.349Z"}
+{"level":"info","message":"Item removed from Shopping cart for user: harry@potter.com having the Cart ID: 64","timestamp":"2016-10-16T05:40:04.325Z"}
+{"level":"info","message":"Item removed from Shopping cart for user: harry@potter.com having the Cart ID: 62","timestamp":"2016-10-16T05:40:05.657Z"}
+{"level":"info","message":"Advertisement posted for user: harry@potter.com with Item ID: harry@potter.com_15_22_40_39_69","timestamp":"2016-10-16T05:40:39.117Z"}
+{"level":"info","message":"Session destroyed for user: undefined","timestamp":"2016-10-16T05:48:15.858Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-10-16T05:48:22.154Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-10-16T05:48:22.192Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-10-16T05:48:23.628Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-10-16T06:44:15.881Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-10-16T06:44:15.899Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-10-16T06:44:17.299Z"}
+{"level":"info","message":"Session destroyed for user: undefined","timestamp":"2016-10-16T06:46:45.920Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-10-16T06:46:49.447Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-10-16T06:46:49.471Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-10-16T06:46:50.678Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-10-16T06:46:54.282Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-10-16T06:46:54.331Z"}
+{"level":"info","message":"Session destroyed for user: undefined","timestamp":"2016-10-16T06:51:36.912Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-10-16T06:51:40.276Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-10-16T06:51:40.314Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-10-16T06:51:41.493Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-10-16T06:51:44.107Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-10-16T06:51:44.131Z"}
+{"level":"info","message":"Session destroyed for user: undefined","timestamp":"2016-10-16T07:01:38.843Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-10-16T07:01:42.777Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-10-16T07:01:42.824Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-10-16T07:01:43.854Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-10-16T07:01:45.524Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-10-16T07:01:45.549Z"}
+{"level":"info","message":"Session destroyed for user: undefined","timestamp":"2016-10-16T07:04:48.805Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-10-16T07:04:53.246Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-10-16T07:04:53.307Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-10-16T07:04:54.675Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-10-16T07:04:57.133Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-10-16T07:04:57.161Z"}
+{"level":"info","message":"Session destroyed for user: undefined","timestamp":"2016-10-16T07:06:28.549Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-10-16T07:06:34.132Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-10-16T07:06:34.174Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-10-16T07:06:35.164Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-10-16T07:06:36.741Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-10-16T07:06:36.820Z"}
+{"level":"info","message":"Session destroyed for user: undefined","timestamp":"2016-10-16T07:11:33.329Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-10-16T07:11:37.179Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-10-16T07:11:37.205Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-10-16T07:11:38.310Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-10-16T07:11:42.053Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-10-16T07:11:42.078Z"}
+{"level":"info","message":"Session destroyed for user: undefined","timestamp":"2016-10-16T07:16:24.402Z"}
+{"level":"info","message":"Session initialized for user: harry@potter.com","timestamp":"2016-10-16T07:16:32.808Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: harry@potter.com","timestamp":"2016-10-16T07:16:32.842Z"}
+{"level":"info","message":"All products Pulled from Database for user: harry@potter.com","timestamp":"2016-10-16T07:16:34.124Z"}
+{"level":"info","message":"Purchase details of user: harry@potter.com pulled.","timestamp":"2016-10-16T07:16:35.942Z"}
+{"level":"info","message":"Selling details of user: harry@potter.com pulled.","timestamp":"2016-10-16T07:16:35.944Z"}
+{"level":"info","message":"Session destroyed for user: undefined","timestamp":"2016-10-16T07:19:33.438Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-10-16T07:19:36.911Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-10-16T07:19:36.928Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-10-16T07:19:38.134Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-10-16T07:19:40.227Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-10-16T07:19:40.310Z"}
+{"level":"info","message":"Session destroyed for user: undefined","timestamp":"2016-10-16T07:21:30.444Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-10-16T07:21:34.187Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-10-16T07:21:34.233Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-10-16T07:21:35.339Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-10-16T07:21:38.108Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-10-16T07:21:38.136Z"}
+{"level":"info","message":"Session destroyed for user: undefined","timestamp":"2016-10-16T07:22:30.883Z"}
+{"level":"info","message":"Session initialized for user: harry@potter.com","timestamp":"2016-10-16T07:22:39.378Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: harry@potter.com","timestamp":"2016-10-16T07:22:39.402Z"}
+{"level":"info","message":"All products Pulled from Database for user: harry@potter.com","timestamp":"2016-10-16T07:22:40.507Z"}
+{"level":"info","message":"Address details fetched for user: harry@potter.com","timestamp":"2016-10-16T07:22:42.244Z"}
+{"level":"info","message":"Shipping Address changed for user: harry@potter.com","timestamp":"2016-10-16T07:22:59.580Z"}
+{"level":"info","message":"User: harry@potter.com purchased his cart with credit cart: 1111111111111111","timestamp":"2016-10-16T07:23:10.365Z"}
+{"level":"info","message":"User: harry@potter.com purchased his cart with credit cart: 1111111111111111","timestamp":"2016-10-16T07:23:10.376Z"}
+{"level":"info","message":"Purchase details of user: harry@potter.com pulled.","timestamp":"2016-10-16T07:23:19.315Z"}
+{"level":"info","message":"Selling details of user: harry@potter.com pulled.","timestamp":"2016-10-16T07:23:19.317Z"}
+{"level":"info","message":"Advertisement posted for user: harry@potter.com with Item ID: harry@potter.com_16_0_23_34_669","timestamp":"2016-10-16T07:23:34.745Z"}
+{"level":"info","message":"All products Pulled from Database for user: harry@potter.com","timestamp":"2016-10-16T07:23:34.791Z"}
+{"level":"info","message":"Selling details of user: harry@potter.com pulled.","timestamp":"2016-10-16T07:23:39.962Z"}
+{"level":"info","message":"Purchase details of user: harry@potter.com pulled.","timestamp":"2016-10-16T07:23:39.989Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-10-16T07:24:29.281Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-10-16T07:24:29.322Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-10-16T07:24:30.784Z"}
+{"level":"info","message":"Product added to cart for User: admin having Item ID: harry@potter.com_16_0_23_34_669","timestamp":"2016-10-16T07:24:46.576Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-10-16T07:24:50.243Z"}
+{"level":"info","message":"User: admin purchased his cart with credit cart: 1919191919191919","timestamp":"2016-10-16T07:25:03.785Z"}
+{"level":"info","message":"User: admin purchased his cart with credit cart: 1919191919191919","timestamp":"2016-10-16T07:25:03.801Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-10-16T07:25:07.263Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-10-16T07:25:07.279Z"}
+{"level":"info","message":"Session destroyed for user: undefined","timestamp":"2016-10-16T07:25:45.692Z"}
+{"level":"info","message":"Session initialized for user: harry@potter.com","timestamp":"2016-10-16T07:25:57.814Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: harry@potter.com","timestamp":"2016-10-16T07:25:57.836Z"}
+{"level":"info","message":"All products Pulled from Database for user: harry@potter.com","timestamp":"2016-10-16T07:25:59.086Z"}
+{"level":"info","message":"Purchase details of user: harry@potter.com pulled.","timestamp":"2016-10-16T07:26:01.149Z"}
+{"level":"info","message":"Selling details of user: harry@potter.com pulled.","timestamp":"2016-10-16T07:26:01.183Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-10-16T07:26:57.839Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-10-16T07:26:57.871Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-10-16T07:26:59.140Z"}
+{"level":"info","message":"Session destroyed for user: undefined","timestamp":"2016-10-16T07:27:00.395Z"}
+{"level":"info","message":"Session initialized for user: harry@potter.com","timestamp":"2016-10-16T07:27:09.601Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: harry@potter.com","timestamp":"2016-10-16T07:27:09.617Z"}
+{"level":"info","message":"All products Pulled from Database for user: harry@potter.com","timestamp":"2016-10-16T07:27:14.811Z"}
+{"level":"info","message":"Purchase details of user: harry@potter.com pulled.","timestamp":"2016-10-16T07:27:23.727Z"}
+{"level":"info","message":"Selling details of user: harry@potter.com pulled.","timestamp":"2016-10-16T07:27:23.729Z"}
+{"level":"info","message":"Session destroyed for user: undefined","timestamp":"2016-10-16T07:28:54.159Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-10-16T07:28:59.127Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-10-16T07:28:59.134Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-10-16T07:29:00.189Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-10-16T07:29:06.722Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-10-16T07:29:06.745Z"}
+{"level":"info","message":"Session destroyed for user: undefined","timestamp":"2016-10-16T07:30:26.984Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-10-16T07:30:32.090Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-10-16T07:30:32.113Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-10-16T07:30:33.171Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-10-16T07:30:34.997Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-10-16T07:30:35.017Z"}
+{"level":"info","message":"Session destroyed for user: undefined","timestamp":"2016-10-16T07:40:32.890Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-10-16T07:40:36.416Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-10-16T07:40:36.458Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-10-16T07:40:37.505Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-10-16T07:40:38.732Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-10-16T07:40:38.776Z"}
+{"level":"info","message":"Session destroyed for user: undefined","timestamp":"2016-10-16T07:45:32.176Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-10-16T07:45:36.793Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-10-16T07:45:36.853Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-10-16T07:45:38.427Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-10-16T07:45:40.839Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-10-16T07:45:40.851Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-10-16T07:45:40.901Z"}
+{"level":"info","message":"Shipping Address changed for user: admin","timestamp":"2016-10-16T07:46:22.178Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-10-16T07:46:33.617Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-10-16T07:46:33.631Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-10-16T07:46:33.667Z"}
+{"level":"info","message":"Session destroyed for user: undefined","timestamp":"2016-10-16T08:36:15.132Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-10-16T08:36:19.598Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-10-16T08:36:19.622Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-10-16T08:36:20.925Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-10-16T08:36:30.853Z"}
+{"level":"info","message":"Advertisement posted for user: admin with Item ID: admin_16_1_36_30_795","timestamp":"2016-10-16T08:36:30.917Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-10-16T08:36:40.141Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-10-16T08:36:40.216Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-10-16T08:36:40.231Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-10-16T08:48:33.255Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-10-16T08:48:41.321Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-10-16T08:48:41.337Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-10-16T08:48:42.124Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-10-16T08:48:44.760Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-10-16T08:48:44.825Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-10-16T08:48:44.836Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-10-16T08:50:17.001Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-10-16T08:50:17.097Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-10-16T08:50:17.144Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-10-16T08:50:29.771Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-10-16T08:50:32.759Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-10-16T08:50:32.785Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-10-16T08:50:33.458Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-10-16T08:50:35.113Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-10-16T08:50:35.140Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-10-16T08:50:35.157Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-10-16T08:51:33.687Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-10-16T08:51:33.702Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-10-16T08:51:33.740Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-10-16T08:52:21.452Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-10-16T08:52:21.458Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-10-16T08:52:21.462Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-10-16T08:52:28.717Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-10-16T08:52:28.736Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-10-16T08:52:29.918Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-10-16T08:52:31.399Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-10-16T08:52:31.422Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-10-16T08:52:31.473Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-10-16T08:54:13.703Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-10-16T08:54:16.734Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-10-16T08:54:16.740Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-10-16T08:54:17.658Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-10-16T08:54:19.523Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-10-16T08:54:19.533Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-10-16T08:54:19.538Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-10-16T08:54:41.615Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-10-16T08:54:45.205Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-10-16T08:54:45.231Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-10-16T08:54:45.766Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-10-16T08:54:47.416Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-10-16T08:54:47.439Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-10-16T08:54:47.471Z"}
+{"level":"info","message":"Shipping Address changed for user: admin","timestamp":"2016-10-16T08:54:56.307Z"}

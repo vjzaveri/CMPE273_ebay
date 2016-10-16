@@ -1,4 +1,8 @@
 var mysql = require('./mysql');
+var fileLogger = require('winston');
+
+//fileLogger.add(fileLogger.transports.File, { filename: 'public/EventLog.log' });
+//fileLogger.remove(fileLogger.transports.Console);
 
 exports.checkoutAddress = function(req,res)
 {
@@ -9,6 +13,7 @@ exports.checkoutAddress = function(req,res)
 		{
 			var tempResult = JSON.stringify(results);
 			var finalResult = JSON.parse(tempResult);
+			fileLogger.info("Address details fetched for user: "+req.session.username);
 			console.log("User Details Fetched");
 			json_responses = {"statusCode" : 200, "userDetails" : results};
 			console.log(finalResult);
@@ -37,6 +42,7 @@ exports.editAddress = function(req,res)
 	mysql.runQuery(function(err,results){
 		if(!err)
 		{
+			fileLogger.info("Shipping Address changed for user: "+req.session.username);
 			console.log("User Details Edited");
 			json_responses = {"statusCode" : 200};			
 			res.send(json_responses);
@@ -160,7 +166,7 @@ exports.payAndPurchase = function(req,res)
 							mysql.runQuery(function(err,resultt){
 								mysql.runQuery(function(err,resultt){
 									mysql.runQuery(function(err,resultt){
-
+										fileLogger.info("User: "+req.session.username+" purchased his cart with credit cart: "+cardNumber);
 									},emptyShoppingCart);},purchaseInfo);},sellingInfo);
 						}
 					else

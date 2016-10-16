@@ -1,5 +1,26 @@
 var mysql = require('./mysql');
 var schedule = require('node-schedule');
+var fileLogger = require('winston');
+//var bidLogger = require('tracer').console();
+
+//var fs = require('fs')
+ // , Log = require('log')
+ // , log = new Log('debug', fs.createWriteStream('public/BiddingLog.log'));
+
+
+//var fs = require('fs');
+ 
+//var bidLogger = require('tracer').console({
+//    transport : function(data) {
+//        console.log(data.output);
+//        fs.appendFile('public/BiddingLog.log', data.output + '\n', (err) => {
+//            if (err) throw err;
+//        });
+//    }
+//});
+
+//bidLogger.add(bidLogger.transports.File, { filename: 'public/BiddingLog.log' });
+//bidLogger.remove(bidLogger.transports.Console);
 
 exports.sellItem = function(req,res)
 {
@@ -37,7 +58,7 @@ exports.sellItem = function(req,res)
 	//create the query to insert this data and also create a query to create an timely event for 4 days bidding.
 	if(buyNow == 0)
 	{
-		var insertProduct = "INSERT INTO products (item_id, item_name, item_description, seller_id, item_price, quantity, buy_now, max_bid, max_bidder, category, timestamp) VALUES ('"+itemId+"', '"+itemName+"', '"+itemDescription+"', '"+maxBidder+"', '"+itemPrice+"', '"+quantity+"', '"+buyNow+"', '"+initialBidding+"', '"+maxBidder+"', '', '"+timeOfAdvertisement+"')";
+		var insertProduct = "INSERT INTO products (item_id, item_name, item_description, seller_id, quantity, buy_now, max_bid, max_bidder, category, timestamp) VALUES ('"+itemId+"', '"+itemName+"', '"+itemDescription+"', '"+maxBidder+"', '"+quantity+"', '"+buyNow+"', '"+initialBidding+"', '"+maxBidder+"', '', '"+timeOfAdvertisement+"')";
 	}
 	else
 	{
@@ -47,6 +68,7 @@ exports.sellItem = function(req,res)
 	mysql.runQuery(function(err,results){
 		if(!err)
 		{
+			fileLogger.info("Advertisement posted for user: "+req.session.username+" with Item ID: "+itemId);
 			console.log("Advertisement Posted with itemId:"+itemId);
 			if(buyNow == 0)
 			{
@@ -148,30 +170,41 @@ exports.sellItem = function(req,res)
 
 				month = tempMonth;
 				var fixedFinaldate = new Date(year,month-1,date,hour,minute,second);
+				//var fixedFinaldate = new Date(2016,9,15,16,48,00);
 				console.log("Fixedfinaldate:"+fixedFinaldate);
-				var newCron = schedule.scheduleJob(fixedFinaldate,function(){
-					console.log("Cron Job executed for date:"+fixedFinaldate);
-					
-					var updateSellingInfo = "INSERT INTO selling_info (email, item_id, quantity, price) VALUES ((SELECT seller_id FROM products WHERE item_id = '"+item_id+"'), '"+item_id+"', '"+quantity+"', '"+itemPrice+"')";
-					var updatePurchaseInfo = "INSERT INTO purchase_info (email, item_id, quantity, price, credit_card_number) VALUES ((SELECT max_bidder FROM products WHERE item_id = '"+itemId+"'), '"+item_id+"', '"+quantity+"', '"+itemPrice+"', '');";
-					var delFromProducts = "DELETE FROM products WHERE item_id = '"+item_id+"'";
-					mysql.runQuery(function(err,result){
-						if(!err)
-						{
-							mysql.runQuery(function(err,results){
-								if(!err)
-								{
-									mysql.runQuery(function(err,result){
-										if(!err)
-										{
-											Console.log("Job Executed!!");
-										}
-									},delFromProducts);
-								}
-							},updatePurchaseInfo);
-						}
-					},updateSellingInfo);
-				});
+				var tempBindVar = itemId;
+				if(buyNow==0)
+				{
+					fileLogger.info("Created the cron job for 4 day bidding for Item ID: "+itemId+" sold by user: "+req.session.username);
+					//log.info("Created the cron job for 4 day bidding for Item ID: "+itemId+" sold by user: "+req.session.username+" for timestamp: "+fixedFinaldate);
+					var newCron = schedule.scheduleJob(fixedFinaldate,function(itemId){
+						console.log("Cron Job executed for date:"+fixedFinaldate);
+						//var item_id=item_id;
+						//var quantity = quantity;
+						//var itemPrice = itemPrice;
+						
+						var updateSellingInfo = "INSERT INTO selling_info (email, item_id, quantity, price) VALUES ((SELECT seller_id FROM products WHERE item_id = '"+itemId+"'), '"+itemId+"', (SELECT quantity FROM products WHERE item_id = '"+itemId+"'), (SELECT max_bid FROM products WHERE item_id = '"+itemId+"'))";
+						var updatePurchaseInfo = "INSERT INTO purchase_info (email, item_id, quantity, price, credit_card_number) VALUES ((SELECT max_bidder FROM products WHERE item_id = '"+itemId+"'), '"+itemId+"', (SELECT quantity FROM products WHERE item_id = '"+itemId+"'), (SELECT max_bid FROM products WHERE item_id = '"+itemId+"'), '');";
+						var delFromProducts = "DELETE FROM products WHERE item_id = '"+itemId+"'";
+						mysql.runQuery(function(err,result){
+							if(!err)
+							{
+								mysql.runQuery(function(err,results){
+									if(!err)
+									{
+										mysql.runQuery(function(err,result){
+											if(!err)
+											{
+												log.info("Cron job executed for Item ID: "+itemId+" for timestamp: "+fixedFinaldate);
+												console.log("Job Executed!!");
+											}
+										},delFromProducts);
+									}
+								},updatePurchaseInfo);
+							}
+						},updateSellingInfo);
+					}.bind(null,tempBindVar));
+				}
 				//var createEvent = "CREATE EVENT "+maxBidder+"_"+itemId+" ON SCHEDULE AT '"+year+"-"+month+"-"+date+" "+hour+":"+minute+":"+second+"' DO BEGIN  END               ";
 				//create logic for event-- pending
 				json_responses = {"statusCode" : 200};
@@ -197,6 +230,7 @@ exports.displayAllProducts = function(req,res)
 	mysql.runQuery(function(err,results){
 		if(!err)
 		{
+			fileLogger.info("All products Pulled from Database for user: "+req.session.username);
 			console.log("All Products Pulled");
 			//var finalResult = JSON.parse(JSON.stringify(results));
 			var finalResult = JSON.stringify(results);
@@ -210,7 +244,7 @@ exports.displayAllProducts = function(req,res)
 			res.send(json_responses);
 		}
 	},getProducts);
-}
+};
 
 exports.addToCart = function(req,res)
 {
@@ -222,6 +256,7 @@ exports.addToCart = function(req,res)
 	mysql.runQuery(function(err,results){
 		if(!err)
 		{
+			fileLogger.info("Product added to cart for User: "+email+" having Item ID: "+itemId);
 			console.log("Product Added to Cart");
 			json_responses = {"statusCode" : 200};			
 			res.send(json_responses);
@@ -264,6 +299,7 @@ exports.removeFromCart = function(req,res)
 	mysql.runQuery(function(err,results){
 		if(!err)
 		{
+			fileLogger.info("Item removed from Shopping cart for user: "+req.session.username+" having the Cart ID: "+reqCartId);
 			console.log("One Item removed from Cart");
 			//var finalResult = JSON.parse(JSON.stringify(results));
 			//var finalResult = JSON.stringify(results);
@@ -286,6 +322,8 @@ exports.placeBid = function(req,res)
 	var json_responses;
 	var bidQuery = "UPDATE products SET max_bid='"+maxBid+"', max_bidder='"+req.session.username+"' WHERE item_id='"+tempItemId+"'";
 	var oldBid = "SELECT max_bid FROM products WHERE item_id='"+tempItemId+"'";
+
+	fileLogger.info("User: "+req.session.username+" placed a Bid of: "+maxBid+" on Item with ID: "+tempItemId);
 
 	mysql.runQuery(function(err,results){
 		if(!err)

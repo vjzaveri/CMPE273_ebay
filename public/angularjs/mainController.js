@@ -54,6 +54,17 @@ app.config(function($routeProvider){
 		},
 		templateUrl : 'Pages/payment.ejs'
 	})
+
+	.when('/profile',{
+		resolve : {
+			"check" : function($rootScope,$location){
+				if(!$rootScope.loggedIn){
+					$location.path('');
+				}
+			}
+		},
+		templateUrl : 'Pages/userProfile.ejs'
+	})
 });
 
 app.controller("mainPageController", function($scope,$http,$location,$rootScope){
@@ -108,6 +119,14 @@ app.controller("mainPageController", function($scope,$http,$location,$rootScope)
 		}).error(function(error) {
 			$rootScope.loggedIn = true;
 		});
+	}
+
+	$scope.sellItemFile = function(){
+		$location.path('/sellItem');
+	}
+
+	$scope.viewProfile = function(){
+		$location.path('/profile');
 	}
 
 });
@@ -186,7 +205,7 @@ app.controller("newAccountController", function($scope,$http,$location){
 	};
 });
 
-app.controller("sellItem", function($scope,$http){
+app.controller("sellItem", function($scope,$http,$location){
 
 	$scope.error = true;
 	$scope.success = true;
@@ -210,7 +229,7 @@ app.controller("sellItem", function($scope,$http){
 			else
 				{
 					$scope.success = false;					
-					//$location.path('');
+					$location.path('allProducts');
 				}
 				//Making a get call to the '/redirectToHomepage' API
 				//window.location.assign("/homepage"); 
@@ -481,11 +500,132 @@ app.controller("paymentController",function($scope,$http){
 				{
 					//$scope.getCart();
 					$scope.success = false;	
+					$location.path('profile');
 				}
 				//Making a get call to the '/redirectToHomepage' API
 				//window.location.assign("/homepage"); 
 		}).error(function(error) {
 			$scope.error = false;
 		});
+	};
+});
+
+app.controller("profileController",function($scope,$http){
+	init();
+	init1();
+	$scope.error = true;
+
+	function init(){
+		$http({
+			method : "POST",
+			url : '/getSoldItems',
+			data : {
+			}
+		}).success(function(data) {
+			//checking the response data for statusCode
+			if (data.statusCode == 401) {
+				//$scope.error = false;
+			}
+			else
+				{
+					//$scope.getCart();
+					$scope.soldItems = data.itemsData;
+					//$scope.success = false;	
+					//$location.path('profile');
+				}
+				//Making a get call to the '/redirectToHomepage' API
+				//window.location.assign("/homepage"); 
+		}).error(function(error) {
+			//$scope.error = false;
+		});
 	}
+
+	function init1(){
+
+		$http({
+			method : "POST",
+			url : '/getPurchasedItems',
+			data : {
+			}
+		}).success(function(data) {
+			//checking the response data for statusCode
+			if (data.statusCode == 401) {
+				//$scope.error = false;
+			}
+			else
+				{
+					//$scope.getCart();
+					$scope.purchaseditems = data.itemsData;
+					//$scope.success = false;	
+					//$location.path('profile');
+				}
+				//Making a get call to the '/redirectToHomepage' API
+				//window.location.assign("/homepage"); 
+		}).error(function(error) {
+			//$scope.error = false;
+		});
+	}
+
+
+	$scope.success = true;
+	init2();
+
+	function init2(){
+		$http({
+			method : "POST",
+			url : '/checkoutAddress',
+			data : {
+			}
+		}).success(function(data) {
+			//checking the response data for statusCode
+			if (data.statusCode == 401) {
+				$scope.error = false;
+			}
+			else
+				{
+					$scope.userAddress = data.userDetails[0];
+					$scope.address = $scope.userAddress.address;
+					$scope.city = $scope.userAddress.city;
+					$scope.state = $scope.userAddress.state;
+					$scope.country = $scope.userAddress.country;
+					$scope.zip = $scope.userAddress.zip;
+					$scope.cellNum = $scope.userAddress.cellphone_number;
+				}
+				//Making a get call to the '/redirectToHomepage' API
+				//window.location.assign("/homepage"); 
+		}).error(function(error) {
+			$scope.error = false;
+		});
+	};
+
+	$scope.editAddress = function(){
+		$http({
+			method : "POST",
+			url : '/editAddress',
+			data : {
+				"address" : $scope.address,
+				"city" : $scope.city,
+				"state" : $scope.state,
+				"country" : $scope.country,
+				"zip" : $scope.zip,
+				"cellNum" : $scope.cellNum
+			}
+		}).success(function(data) {
+			//checking the response data for statusCode
+			if (data.statusCode == 401) {
+				$scope.error = false;
+			}
+			else
+				{
+					$scope.success = false;	
+				}
+				//Making a get call to the '/redirectToHomepage' API
+				//window.location.assign("/homepage"); 
+		}).error(function(error) {
+			$scope.error = false;
+		});
+	};
+
+
+
 });

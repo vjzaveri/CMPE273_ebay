@@ -3,6 +3,12 @@ var crypto = require('crypto'),
 	algorithm = 'aes-256-ctr',
 	password = 'youcantknowthis';
 
+var fileLogger = require('winston');
+
+fileLogger.add(fileLogger.transports.File, { filename: 'public/EventLog.log' });
+fileLogger.remove(fileLogger.transports.Console);
+
+
 encrypt = function(input)
 {
 	var cipher = crypto.createCipher(algorithm,password);
@@ -30,7 +36,7 @@ exports.checkLogin = function(req, res)
 				var getLastLogInTime = "select last_logged_in from customer where email='"+username+"' and password='" +password+ "'";
 
 				mysql.runQuery(function(err, result){
-					lastLogInTime = result[0].last_logged_in;
+					lastLogInTime = ""+result[0].last_logged_in;
 
 					var todayDate = new Date();
 					var year = todayDate.getFullYear();
@@ -45,16 +51,20 @@ exports.checkLogin = function(req, res)
 					mysql.runQuery(function(err,results){
 					if(!err)
 					{
+						fileLogger.info("Last Logged In Timestamp stored for User: "+username);
 						console.log("Timestamp Stored");
 					}
 					else
 					{
+						fileLogger.info("Error in updating Last Logged in Timestamp for User: "+username);
 						console.log("Error in updating Timestamp");
 					}
 				},setLastLoggedInTime);
 
 				req.session.username = username;
+				fileLogger.info("Session initialized for user: "+username);
 				console.log("Session initialized");
+				//fileLogger.info("First Log");
 				json_responses = {"statusCode" : 200, "lastLogInTime" : lastLogInTime};
 				res.send(json_responses);
 				},getLastLogInTime);				
@@ -87,6 +97,7 @@ exports.newUser = function(req,res)
 	mysql.runQuery(function(err,results){
 		if(!err)
 		{
+			fileLogger.info("New user created with username: "+username);
 			console.log("New User Created");
 			json_responses = {"statusCode" : 200};
 			
@@ -119,8 +130,10 @@ exports.checkSession = function(req,res)
 exports.logout = function(req,res)
 {
 	var json_responses;
-	req.session.destroy();
+	//req.session.destroy();
+	fileLogger.info("Session destroyed for user: "+req.session.username);
 	console.log("Session Destroyed"+req.session.username);
+	req.session.destroy();
 	json_responses = {"statusCode" : 200};
 	res.send(json_responses);
 }

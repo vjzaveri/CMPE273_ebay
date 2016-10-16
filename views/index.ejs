@@ -32,7 +32,8 @@
       <div ng-show="loggedIn" class="dropdown">
       <button href="#" class="dropdown-toggle btn btn-lg btn-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My eBay <span class="caret"></span></button>
       <ul class="dropdown-menu">
-        <li><button class="btn btn-lg btn-link" ng-click="">View Profile</button></li>
+        <li><button class="btn btn-lg btn-link" ng-click="viewProfile();">View Profile</button></li>
+        <li><button class="btn btn-lg btn-link" ng-click="sellItemFile();">Sell Item</button></li>
         <li><button class="btn btn-lg btn-link" ng-click="logout();">Logout</button></li>
       </ul>
       </div>

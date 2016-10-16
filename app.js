@@ -37,7 +37,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/users', user.list);
+//app.get('/users', user.list);
 app.get('/displayAllProducts', product.displayAllProducts);
 
 
@@ -54,6 +54,8 @@ app.post('/payAndPurchase', checkout.payAndPurchase);
 app.post('/checkSession', login.checkSession);
 app.post('/logout', login.logout);
 app.post('/placeBid', product.placeBid);
+app.post('/getSoldItems', user.getSoldItems);
+app.post('/getPurchasedItems', user.getPurchasedItems);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
