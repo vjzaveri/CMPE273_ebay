@@ -3,24 +3,6 @@ var schedule = require('node-schedule');
 var fileLogger = require('winston');
 //var bidLogger = require('tracer').console();
 
-//var fs = require('fs')
- // , Log = require('log')
- // , log = new Log('debug', fs.createWriteStream('public/BiddingLog.log'));
-
-
-//var fs = require('fs');
- 
-//var bidLogger = require('tracer').console({
-//    transport : function(data) {
-//        console.log(data.output);
-//        fs.appendFile('public/BiddingLog.log', data.output + '\n', (err) => {
-//            if (err) throw err;
-//        });
-//    }
-//});
-
-//bidLogger.add(bidLogger.transports.File, { filename: 'public/BiddingLog.log' });
-//bidLogger.remove(bidLogger.transports.Console);
 
 exports.sellItem = function(req,res)
 {
@@ -352,4 +334,16 @@ exports.placeBid = function(req,res)
 			res.send(json_responses);
 		}
 	},oldBid);
+}
+
+
+exports.testing = function(req,res){
+	var query = "SELECT * from products";
+	var a,b,c,d,e,f,json_responses;
+
+	mysql.runQuery(function(err,result){f=result; json_responses = {"f":f};},query);
+
+	//var json_responses = {"a":a, "b":b, "c":c, "d":d, "e":e, "f":f};
+
+res.send(json_responses);
 }

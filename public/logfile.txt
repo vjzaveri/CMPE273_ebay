@@ -1,4 +1,0 @@
-{"level":"info","message":"First Log","timestamp":"2016-10-16T00:35:49.905Z"}
-{"level":"info","message":"First Log","timestamp":"2016-10-16T01:01:42.453Z"}
-{"level":"info","message":"First Log","timestamp":"2016-10-16T01:04:49.687Z"}
-{"level":"info","message":"First Log","timestamp":"2016-10-16T01:05:00.004Z"}

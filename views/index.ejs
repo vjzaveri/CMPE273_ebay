@@ -20,11 +20,14 @@
     <div class="col-md-1">
       <img src="./stylesheets/ebayLogo.png" style="width: 122px; height: 50px">
     </div>
-    <div class="col-md-1" style="padding-left: 35px;">
+    <div class="col-md-1" style="padding-left: 35px;" ng-hide="loggedIn">
       <button class="btn btn-lg btn-link" ng-click="signIn();">Sign In</button>
     </div>
-    <div class="col-md-1">
+    <div class="col-md-1" ng-hide="loggedIn">
       <button class="btn btn-lg btn-link" ng-click="signUp();">Register</button>
+    </div>
+    <div class="col-md-1" style="padding-left: 35px;" ng-show="loggedIn">
+      <button class="btn btn-lg btn-link" ng-click="viewHomepage();">HomePage</button>
     </div>
     <div class="col-md-6"></div>
     <div class="col-md-3"> 

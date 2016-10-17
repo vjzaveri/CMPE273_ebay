@@ -1,8 +1,7 @@
 var mysql = require('./mysql');
 var fileLogger = require('winston');
 
-//fileLogger.add(fileLogger.transports.File, { filename: 'public/EventLog.log' });
-//fileLogger.remove(fileLogger.transports.Console);
+
 
 exports.checkoutAddress = function(req,res)
 {
@@ -88,15 +87,7 @@ exports.checkoutShoppingCart = function(req,res)
 						var q = results[0].quantity;
 						console.log(q);
 
-						//if(parseInt(q)<parseInt(finalResult[i].quantity))
-						//{
-						//	flag = 1;
-						//	var temp = {"item_id" : finalResult[i].item_id, "item_name" : finalResult[i].item_name};
-						//	cart_response.push(temp);
-						//	//var newQ = parseInt(q)-parseInt(finalResult[i].quantity);
-						//	//var editProducts = "UPDATE products SET quantity='"+newQ+"' WHERE item_id='"+finalResult[i].item_id+"';"
-						//	//var editPurchaseInfo = "INSERT INTO purchase_info (email, item_id, quantity, price, credit_card_number) VALUES ('1', '1', '1', '1', '1', '1');";
-						//}
+
 					}
 				},checkQuantity);
 			}

@@ -129,6 +129,10 @@ app.controller("mainPageController", function($scope,$http,$location,$rootScope)
 		$location.path('/profile');
 	}
 
+	$scope.viewHomepage = function(){
+		$location.path('/allProducts');
+	}
+
 });
 
 
@@ -480,7 +484,7 @@ app.controller("checkoutAddress",function($scope,$http,$location){
 	}
 });
 
-app.controller("paymentController",function($scope,$http){
+app.controller("paymentController",function($scope,$http,$location){
 
 	$scope.error = true;
 	$scope.finalPage = function(){
@@ -500,7 +504,7 @@ app.controller("paymentController",function($scope,$http){
 				{
 					//$scope.getCart();
 					$scope.success = false;	
-					$location.path('profile');
+					$location.path('/profile');
 				}
 				//Making a get call to the '/redirectToHomepage' API
 				//window.location.assign("/homepage"); 

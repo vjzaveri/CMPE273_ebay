@@ -39,6 +39,7 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 //app.get('/users', user.list);
 app.get('/displayAllProducts', product.displayAllProducts);
+app.get('/testing', product.testing);
 
 
 app.post('/checkLogin',login.checkLogin);
