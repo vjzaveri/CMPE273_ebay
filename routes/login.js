@@ -3,6 +3,8 @@ var crypto = require('crypto'),
 	algorithm = 'aes-256-ctr',
 	password = 'youcantknowthis';
 
+var mq_client = require('../rpc/client');
+
 var mongo = require("./mongo");
 var mongoURL = "mongodb://localhost:27017/ebay";
 
@@ -124,6 +126,38 @@ exports.newUser = function(req,res)
 	var firstName = req.param("firstName");
 	var lastName = req.param("lastName");
 
+	var msg_payload = {"username":username, "firstName":firstName, "lastName":lastName, "password":password};
+
+	mq_client.make_request('ebay_signup_queue',msg_payload, function(err,results){
+		
+	//console.log(results);
+		if(err){
+			throw err;
+		}
+		else 
+		{
+			if(results.code == 200){
+				//console.log("valid Login");
+				//req.session.username = username;
+				//res.send({"login":"Success"});
+
+				fileLogger.info("New user created with username: "+username);
+				console.log("New User Created");
+				json_responses = {"statusCode" : 200};
+			
+				res.send(json_responses);
+			}
+			else {    
+				
+				//console.log("Invalid Login");
+				//res.send({"login":"Fail"});
+
+				json_responses = {"statusCode" : 401};
+				res.send(json_responses);
+			}
+		}  
+	});
+/*
 	var newUser = "INSERT INTO customer (email, first_name, last_name, password) VALUES ('"+username+"', '"+firstName+"', '"+lastName+"', '"+password+"')";
 
 	mysql.runQuery(function(err,results){
@@ -141,6 +175,7 @@ exports.newUser = function(req,res)
 			res.send(json_responses);
 		}
 	},newUser);
+*/
 }
 
 exports.checkSession = function(req,res)

@@ -20,13 +20,23 @@ var mongo = require("./routes/mongo");
 //var login = require("./routes/login");
 
 var app = express();
-
+/*
 // all environments
 app.use(session({	  
 	cookieName: 'session',    
 	secret: 'cmpe273_ebay',    
 	duration: 30 * 60 * 1000,
-	activeDuration: 5 * 60 * 1000,  }));
+	activeDuration: 5 * 60 * 1000,  }));*/
+app.use(expressSession({
+  secret: 'cmpe273_teststring',
+  resave: false,  //don't save session if unmodified
+  saveUninitialized: false, // don't create session until something stored
+  duration: 30 * 60 * 1000,    
+  activeDuration: 5 * 60 * 1000,
+  store: new mongoStore({
+    url: mongoSessionConnectURL
+  })
+}));
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
@@ -63,15 +73,15 @@ app.post('/logout', login.logout);
 app.post('/placeBid', product.placeBid);
 app.post('/getSoldItems', user.getSoldItems);
 app.post('/getPurchasedItems', user.getPurchasedItems);
-
+/*
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+*/
 
-/*
 mongo.connect(mongoSessionConnectURL, function(){
   console.log('Connected to mongo at: ' + mongoSessionConnectURL);
   http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
   });  
-});*/
+});

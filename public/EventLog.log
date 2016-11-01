@@ -13824,3 +13824,24 @@
 {"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-10-28T20:30:30.051Z"}
 {"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-10-28T20:30:37.618Z"}
 {"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-10-28T20:30:41.303Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-11-01T09:22:26.407Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-11-01T09:22:26.422Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-01T09:22:27.877Z"}
+{"level":"info","message":"Product added to cart for User: admin having Item ID: admin_13_16_53_25_696","timestamp":"2016-11-01T09:22:36.577Z"}
+{"level":"info","message":"Product added to cart for User: admin having Item ID: admin_13_16_53_25_696","timestamp":"2016-11-01T09:22:38.893Z"}
+{"level":"info","message":"Product added to cart for User: admin having Item ID: admin_13_16_53_25_696","timestamp":"2016-11-01T09:22:39.846Z"}
+{"level":"info","message":"Item removed from Shopping cart for user: admin having the Cart ID: 70","timestamp":"2016-11-01T09:22:41.605Z"}
+{"level":"info","message":"Item removed from Shopping cart for user: admin having the Cart ID: 71","timestamp":"2016-11-01T09:22:41.979Z"}
+{"level":"info","message":"Item removed from Shopping cart for user: admin having the Cart ID: 72","timestamp":"2016-11-01T09:22:42.524Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-11-01T09:35:19.704Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-11-01T09:35:19.714Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-01T09:35:20.969Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-11-01T09:35:34.061Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-11-01T09:35:34.070Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-01T09:35:35.131Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-01T09:35:37.369Z"}
+{"level":"info","message":"Session initialized for user: admin","timestamp":"2016-11-01T09:38:54.692Z"}
+{"level":"info","message":"Last Logged In Timestamp stored for User: admin","timestamp":"2016-11-01T09:38:54.702Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-01T09:38:55.475Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-01T09:39:03.011Z"}
+{"level":"info","message":"New user created with username: undefined","timestamp":"2016-11-01T10:04:09.725Z"}
