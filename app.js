@@ -13,6 +13,12 @@ var product = require('./routes/product');
 var checkout = require('./routes/checkout');
 var session = require('client-sessions');
 
+var mongoSessionConnectURL = "mongodb://localhost:27017/ebay";
+var expressSession = require("express-session");
+var mongoStore = require("connect-mongo")(expressSession);
+var mongo = require("./routes/mongo");
+//var login = require("./routes/login");
+
 var app = express();
 
 // all environments
@@ -61,3 +67,11 @@ app.post('/getPurchasedItems', user.getPurchasedItems);
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+/*
+mongo.connect(mongoSessionConnectURL, function(){
+  console.log('Connected to mongo at: ' + mongoSessionConnectURL);
+  http.createServer(app).listen(app.get('port'), function(){
+    console.log('Express server listening on port ' + app.get('port'));
+  });  
+});*/
