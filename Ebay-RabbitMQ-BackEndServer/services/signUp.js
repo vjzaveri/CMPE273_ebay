@@ -30,7 +30,7 @@ function handle_request(msg, callback){
 		console.log('Connected to mongo at: ' + mongoURL);
 		var coll = mongo.collection('customer');
 
-		coll.insert({email: username, first_name: firstName, last_name:lastName, password:password}, function(err, user){
+		coll.insert({_id:username, email: username, first_name: firstName, last_name:lastName, password:password, cellphone_number:"", address:"", city:"", state:"", country:"", zip:"", last_logged_in:"", purchase_info:[], selling_info:[], shopping_cart:[]}, function(err, user){
 			if (user) {
 				// This way subsequent requests will know the user is logged in.
 				//req.session.username = user.username;

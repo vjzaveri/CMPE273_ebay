@@ -2,6 +2,7 @@ var mysql = require('./mysql');
 var schedule = require('node-schedule');
 var fileLogger = require('winston');
 //var bidLogger = require('tracer').console();
+var mq_client = require('../rpc/client');
 
 
 exports.sellItem = function(req,res)
@@ -11,6 +12,40 @@ exports.sellItem = function(req,res)
 	var itemPrice = req.param("itemPrice");
 	var quantity = req.param("quantity");
 	var buyNow = req.param("buyNow");
+	var initialBidding = req.param("initialBidding");
+
+
+	var msg_payload = {"itemName":itemName, "itemDescription": itemDescription, "itemPrice": itemPrice, "quantity": quantity, "buyNow": buyNow, "initialBidding":initialBidding, "maxBidder": req.session.username};
+
+	mq_client.make_request('ebay_sellItem_queue', msg_payload, function(err,results){
+		if(err){
+			throw err;
+		}
+		else 
+		{
+			if(results.code == 200){
+				//console.log("valid Login");
+				//req.session.username = username;
+				//res.send({"login":"Success"});
+				fileLogger.info("Advertisement posted for user: "+req.session.username+" with Item ID: "+results.itemId);
+				//fileLogger.info("New user created with username: "+username);
+				//console.log("New User Created");
+				json_responses = {"statusCode" : 200};
+			
+				res.send(json_responses);
+			}
+			else {    
+				
+				//console.log("Invalid Login");
+				//res.send({"login":"Fail"});
+
+				json_responses = {"statusCode" : 401};
+				res.send(json_responses);
+			}
+		} 
+	});
+/*
+
 	if(buyNow)
 	{
 		buyNow=0;
@@ -19,7 +54,7 @@ exports.sellItem = function(req,res)
 	{
 		buyNow=1;
 	}
-	var initialBidding = req.param("initialBidding");
+	
 	var maxBidder = req.session.username;
 
 	var todayDate = new Date();
@@ -200,15 +235,40 @@ exports.sellItem = function(req,res)
 			res.send(json_responses);
 		}
 	},insertProduct);
-
+*/
 	res.send(json_responses);
 }
 
 
 exports.displayAllProducts = function(req,res)
 {
-	var getProducts = "SELECT * FROM products WHERE quantity > 0";
+	//var getProducts = "SELECT * FROM products WHERE quantity > 0";
+	var msg_payload = {};
+	mq_client.make_request('ebay_products_queue', msg_payload, function(err,results){
+		if(err){
+			throw err;
+		}
+		else 
+		{
+			if(results.code == 200){
 
+				fileLogger.info("All products Pulled from Database for user: "+req.session.username);
+	 			console.log("All Products Pulled");
+				//var finalResult = JSON.parse(JSON.stringify(results));
+				var finalResult = JSON.stringify(results.data);
+				json_responses = {"statusCode" : 200, "allProducts" : results.data};
+			
+				res.send(json_responses);
+
+			}
+			else {    
+				
+				json_responses = {"statusCode" : 401};
+				res.send(json_responses);
+			}
+		} 
+	});
+/*
 	mysql.runQuery(function(err,results){
 		if(!err)
 		{
@@ -226,15 +286,48 @@ exports.displayAllProducts = function(req,res)
 			res.send(json_responses);
 		}
 	},getProducts);
+	*/
 };
 
 exports.addToCart = function(req,res)
 {
 	var itemId = req.param("itemId");
+	var itemName = req.param("itemName");
+	var itemPrice = req.param("itemPrice");
 	var email = req.session.username;
 	var quantity = 1;
 	var addToCart = "INSERT INTO shopping_cart (email, item_id, quantity) VALUES ('"+email+"', '"+itemId+"', '"+quantity+"');";
 
+	var msg_payload = {"email":email, "itemId": itemId, "itemName":itemName, "itemPrice":itemPrice, "quantity":quantity};
+
+	mq_client.make_request('ebay_addToCart_queue', msg_payload, function(err,results){
+		if(err){
+			throw err;
+		}
+		else 
+		{
+			if(results.code == 200){
+				//console.log("valid Login");
+				//req.session.username = username;
+				//res.send({"login":"Success"});
+				fileLogger.info("Product added to cart for user: "+req.session.username);
+				//fileLogger.info("New user created with username: "+username);
+				//console.log("New User Created");
+				json_responses = {"statusCode" : 200};
+			
+				res.send(json_responses);
+			}
+			else {    
+				
+				//console.log("Invalid Login");
+				//res.send({"login":"Fail"});
+
+				json_responses = {"statusCode" : 401};
+				res.send(json_responses);
+			}
+		} 
+	});
+/*
 	mysql.runQuery(function(err,results){
 		if(!err)
 		{
@@ -249,12 +342,37 @@ exports.addToCart = function(req,res)
 			res.send(json_responses);
 		}
 	},addToCart);
+
+	*/
 }
 
 exports.shoppingCart = function(req,res)
 {
 	var getCart = "SELECT cart_id, item_name, item_price, shopping_cart.quantity AS quantity FROM shopping_cart, products WHERE shopping_cart.item_id=products.item_id AND email = '"+req.session.username+"'";
 
+	var email = req.session.username;
+
+	var msg_payload = {"email":email};
+
+	mq_client.make_request('ebay_fetchShoppingCart_queue', msg_payload, function(err, results){
+		if(err){
+			throw err;
+		}
+		else 
+		{
+			if(results.code == 200){
+				fileLogger.info("Shopping Cart pulled for user: "+req.session.username);
+				console.log("Shopping Cart:::::"+results.shopping_cart.item_id);
+				json_responses = {"statusCode" : 200, "shoppingCartProducts" : results.shopping_cart};
+				res.send(json_responses);
+			}
+			else {    
+				json_responses = {"statusCode" : 401};
+				res.send(json_responses);
+			}
+		} 
+	});
+/*
 	mysql.runQuery(function(err,results){
 		if(!err)
 		{
@@ -271,6 +389,7 @@ exports.shoppingCart = function(req,res)
 			res.send(json_responses);
 		}
 	},getCart);
+	*/
 }
 
 exports.removeFromCart = function(req,res)

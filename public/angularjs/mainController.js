@@ -262,6 +262,7 @@ app.controller("allProducts", function($scope,$http,$location){
 			else
 				{
 					$scope.shoppingCart = data.shoppingCartProducts;
+					alert($scope.shoppingCart.item_id);
 				}
 				//Making a get call to the '/redirectToHomepage' API
 				//window.location.assign("/homepage"); 
@@ -304,11 +305,15 @@ app.controller("allProducts", function($scope,$http,$location){
 		$scope.success = true;
 		$scope.error = true;
 		$scope.selectedItem = product.item_id;
+		$scope.selectedItemName = product.item_name;
+		$scope.selectedItemPrice = product.item_price;
 		$http({
 			method : "POST",
 			url : '/addToCart',
 			data : {
-				"itemId" : $scope.selectedItem
+				"itemId" : $scope.selectedItem,
+				"itemName" : $scope.selectedItemName,
+				"itemPrice" : $scope.selectedItemPrice
 			}
 		}).success(function(data) {
 			//checking the response data for statusCode

@@ -30,9 +30,42 @@ exports.checkLogin = function(req, res)
 	var password = encrypt(normalPassword);
 	var json_responses;
 	var lastLogInTime;
+
+	var msg_payload = {"username":username, "password":password};
+
+	mq_client.make_request('ebay_login_queue', msg_payload, function(err, results){
+		if(err)
+		{
+			throw err;
+		}
+		else 
+		{
+			if(results.code == 200){
+				console.log("valid Login");
+				req.session.username = username;
+				//res.send({"login":"Success"});
+				lastLogInTime = results.last_logged_in;
+				fileLogger.info("User Logged In: "+username);
+				//console.log("New User Created");
+				//json_responses = {"statusCode" : 200};
+				json_responses = {"statusCode" : 200, "lastLogInTime" : lastLogInTime};
+				res.send(json_responses);
+			}
+			else {    
+				
+				//console.log("Invalid Login");
+				//res.send({"login":"Fail"});
+
+				json_responses = {"statusCode" : 401};
+				res.send(json_responses);
+			}
+		} 
+
+	});
+/*
 	var checkUser = "select * from customer where email='"+username+"' and password='" +password+ "'";
 
-/*
+
 
 
 	mongo.connect(mongoURL, function(){
@@ -55,7 +88,7 @@ exports.checkLogin = function(req, res)
 		});
 	});
 
-*/
+
 
 
 
@@ -115,6 +148,8 @@ exports.checkLogin = function(req, res)
 			res.send(json_responses);
 		}
 	},checkUser);
+
+	*/
 }
 
 
