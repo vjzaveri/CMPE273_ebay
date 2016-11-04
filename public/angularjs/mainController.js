@@ -160,7 +160,7 @@ app.controller("loginController", function($scope,$http,$location,$rootScope){
 					$scope.success = false;
 					$rootScope.lliTime = data.lastLogInTime;
 					$rootScope.loggedIn = true;
-					alert("Login Successfull!!");
+					//alert("Login Successfull!!");
 					$location.path('allProducts');
 				}
 				//Making a get call to the '/redirectToHomepage' API

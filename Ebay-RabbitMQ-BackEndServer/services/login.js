@@ -2,6 +2,7 @@ var mongo = require("./mongo");
 var mongoURL = "mongodb://localhost:27017/ebay";
 
 
+
 function handle_request(msg, callback){
 	
 	var res = {};
@@ -36,6 +37,7 @@ function handle_request(msg, callback){
 				res.code = "200";
 				res.value = "Success Login";
 				res.last_logged_in = user.last_logged_in;
+				res.username = user.email;
 
 				console.log("In login: "+user.email);
 				var todayDate = new Date();

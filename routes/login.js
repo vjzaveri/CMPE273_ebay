@@ -4,7 +4,7 @@ var crypto = require('crypto'),
 	password = 'youcantknowthis';
 
 var mq_client = require('../rpc/client');
-
+var passport = require('passport');
 var mongo = require("./mongo");
 var mongoURL = "mongodb://localhost:27017/ebay";
 
@@ -22,6 +22,66 @@ encrypt = function(input)
 	return crypted;
 }
 
+
+exports.checkLogin = function(req, res, next) {
+	//var username = req.param("username");
+	//var normalPassword = req.param("password");
+	//var password = encrypt(normalPassword);
+	//var json_responses;
+	//var lastLogInTime;
+  passport.authenticate('login', function(err, user, info) {
+  	var json_responses;
+    if(err) {
+      return next(err);
+    }
+
+    if(!user) {
+      
+		json_responses = {"statusCode" : 401};
+		res.send(json_responses);
+    }
+    else
+    {
+
+    	      console.log("valid Loginnnn");
+    	      //console.log(user.last_logged_in+"hehehe");
+		req.session.username = user.username;
+		//console.log("session:"+req.session.username);
+				//res.send({"login":"Success"});
+		var lastLogInTime = user.last_logged_in;
+		//fileLogger.info("User Logged In: "+username);
+				//console.log("New User Created");
+				//json_responses = {"statusCode" : 200};
+		json_responses = {"statusCode" : 200, "lastLogInTime" : lastLogInTime};
+		//console.log(lastLogInTime+"hehehevhhvjhvhjvjv");
+		res.send(json_responses);
+    }
+/*
+    req.logIn(user, {session:false}, function(err) {
+      if(err) {
+        return next(err);
+      }
+
+      //req.session.user = user.username;
+      //console.log("session initilized")
+      //return res.render('successLogin', {user:user});
+
+      console.log("valid Login");
+		req.session.username = username;
+				//res.send({"login":"Success"});
+		lastLogInTime = user.last_logged_in;
+		fileLogger.info("User Logged In: "+username);
+				//console.log("New User Created");
+				//json_responses = {"statusCode" : 200};
+		json_responses = {"statusCode" : 200, "lastLogInTime" : lastLogInTime};
+		res.send(json_responses);
+
+
+
+    })*/
+  })(req, res, next);
+}
+/*
 
 exports.checkLogin = function(req, res)
 {
@@ -149,9 +209,9 @@ exports.checkLogin = function(req, res)
 		}
 	},checkUser);
 
-	*/
+	
 }
-
+*/
 
 exports.newUser = function(req,res)
 {

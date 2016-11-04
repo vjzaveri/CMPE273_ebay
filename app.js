@@ -12,6 +12,10 @@ var login = require('./routes/login');
 var product = require('./routes/product');
 var checkout = require('./routes/checkout');
 var session = require('client-sessions');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var passport = require('passport');
+require('./routes/passport')(passport);
 
 var mongoSessionConnectURL = "mongodb://localhost:27017/ebay";
 var expressSession = require("express-session");
@@ -45,6 +49,7 @@ app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
+app.use(passport.initialize());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // development only

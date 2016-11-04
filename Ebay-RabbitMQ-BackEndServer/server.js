@@ -16,6 +16,9 @@ var payAndPurchase = require('./services/payAndPurchase');
 var getSoldItems = require('./services/getSoldItems');
 var getPurchasedItems = require('./services/getPurchasedItems');
 
+
+
+
 var mongoSessionConnectURL = "mongodb://localhost:27017/ebay";
 var expressSession = require("express-session");
 var mongoStore = require("connect-mongo")(expressSession);
@@ -36,6 +39,12 @@ app.use(expressSession({
 		url: mongoSessionConnectURL
 	})
 }));
+// var cookieParser = require('cookie-parser');
+// var bodyParser = require('body-parser');
+// var passport = require('passport');
+// require('./services/passport')(passport);
+// app.use(app.router);
+// app.use(passport.initialize());
 
 mongo.connect(mongoSessionConnectURL, function(){
 	console.log('Connected to mongo at: ' + mongoSessionConnectURL);
