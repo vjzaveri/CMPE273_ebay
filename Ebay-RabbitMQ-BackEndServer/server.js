@@ -8,6 +8,13 @@ var sellItem = require('./services/sellItem');
 var pullProducts = require('./services/pullProducts');
 var addToCart = require('./services/addToCart');
 var fetchShoppingcart = require('./services/fetchShoppingCart');
+var removeFromCart = require('./services/removeFromCart');
+var placeBid = require('./services/placeBid');
+var checkoutAddress = require('./services/checkoutAddress');
+var editAddress = require('./services/editAddress');
+var payAndPurchase = require('./services/payAndPurchase');
+var getSoldItems = require('./services/getSoldItems');
+var getPurchasedItems = require('./services/getPurchasedItems');
 
 var mongoSessionConnectURL = "mongodb://localhost:27017/ebay";
 var expressSession = require("express-session");
@@ -140,6 +147,138 @@ cnn.on('ready', function(){
 			util.log("Message: "+JSON.stringify(message));
 			util.log("DeliveryInfo: "+JSON.stringify(deliveryInfo));
 			fetchShoppingcart.handle_request(message, function(err,res){
+
+				//return index sent
+				cnn.publish(m.replyTo, res, {
+					contentType:'application/json',
+					contentEncoding:'utf-8',
+					correlationId:m.correlationId
+				});
+			});
+		});
+	});
+
+
+	console.log("listening on removeFromCart_queue");
+	cnn.queue('ebay_removeFromCart_queue', function(q){
+		q.subscribe(function(message, headers, deliveryInfo, m){
+			util.log(util.format( deliveryInfo.routingKey, message));
+			util.log("Message: "+JSON.stringify(message));
+			util.log("DeliveryInfo: "+JSON.stringify(deliveryInfo));
+			removeFromCart.handle_request(message, function(err,res){
+
+				//return index sent
+				cnn.publish(m.replyTo, res, {
+					contentType:'application/json',
+					contentEncoding:'utf-8',
+					correlationId:m.correlationId
+				});
+			});
+		});
+	});
+
+
+	console.log("listening on placeBid_queue");
+	cnn.queue('ebay_placeBid_queue', function(q){
+		q.subscribe(function(message, headers, deliveryInfo, m){
+			util.log(util.format( deliveryInfo.routingKey, message));
+			util.log("Message: "+JSON.stringify(message));
+			util.log("DeliveryInfo: "+JSON.stringify(deliveryInfo));
+			placeBid.handle_request(message, function(err,res){
+
+				//return index sent
+				cnn.publish(m.replyTo, res, {
+					contentType:'application/json',
+					contentEncoding:'utf-8',
+					correlationId:m.correlationId
+				});
+			});
+		});
+	});
+
+	console.log("listening on checkoutAddress_queue");
+	cnn.queue('ebay_checkoutAddress_queue', function(q){
+		q.subscribe(function(message, headers, deliveryInfo, m){
+			util.log(util.format( deliveryInfo.routingKey, message));
+			util.log("Message: "+JSON.stringify(message));
+			util.log("DeliveryInfo: "+JSON.stringify(deliveryInfo));
+			checkoutAddress.handle_request(message, function(err,res){
+
+				//return index sent
+				cnn.publish(m.replyTo, res, {
+					contentType:'application/json',
+					contentEncoding:'utf-8',
+					correlationId:m.correlationId
+				});
+			});
+		});
+	});
+
+
+	console.log("listening on editAddress_queue");
+	cnn.queue('ebay_editAddress_queue', function(q){
+		q.subscribe(function(message, headers, deliveryInfo, m){
+			util.log(util.format( deliveryInfo.routingKey, message));
+			util.log("Message: "+JSON.stringify(message));
+			util.log("DeliveryInfo: "+JSON.stringify(deliveryInfo));
+			editAddress.handle_request(message, function(err,res){
+
+				//return index sent
+				cnn.publish(m.replyTo, res, {
+					contentType:'application/json',
+					contentEncoding:'utf-8',
+					correlationId:m.correlationId
+				});
+			});
+		});
+	});
+
+
+	console.log("listening on payAndPurchase_queue");
+	cnn.queue('ebay_payAndPurchase_queue', function(q){
+		q.subscribe(function(message, headers, deliveryInfo, m){
+			util.log(util.format( deliveryInfo.routingKey, message));
+			util.log("Message: "+JSON.stringify(message));
+			util.log("DeliveryInfo: "+JSON.stringify(deliveryInfo));
+			payAndPurchase.handle_request(message, function(err,res){
+
+				//return index sent
+				cnn.publish(m.replyTo, res, {
+					contentType:'application/json',
+					contentEncoding:'utf-8',
+					correlationId:m.correlationId
+				});
+			});
+		});
+	});
+
+
+	console.log("listening on getSoldItems_queue");
+	cnn.queue('ebay_getSoldItems_queue', function(q){
+		q.subscribe(function(message, headers, deliveryInfo, m){
+			util.log(util.format( deliveryInfo.routingKey, message));
+			util.log("Message: "+JSON.stringify(message));
+			util.log("DeliveryInfo: "+JSON.stringify(deliveryInfo));
+			getSoldItems.handle_request(message, function(err,res){
+
+				//return index sent
+				cnn.publish(m.replyTo, res, {
+					contentType:'application/json',
+					contentEncoding:'utf-8',
+					correlationId:m.correlationId
+				});
+			});
+		});
+	});
+
+
+	console.log("listening on getPurchasedItems_queue");
+	cnn.queue('ebay_getPurchasedItems_queue', function(q){
+		q.subscribe(function(message, headers, deliveryInfo, m){
+			util.log(util.format( deliveryInfo.routingKey, message));
+			util.log("Message: "+JSON.stringify(message));
+			util.log("DeliveryInfo: "+JSON.stringify(deliveryInfo));
+			getPurchasedItems.handle_request(message, function(err,res){
 
 				//return index sent
 				cnn.publish(m.replyTo, res, {

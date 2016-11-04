@@ -13968,3 +13968,214 @@
 {"level":"info","message":"User Logged In: admin","timestamp":"2016-11-03T20:06:37.703Z"}
 {"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-03T20:06:38.434Z"}
 {"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-03T20:06:38.438Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-03T20:24:32.683Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-03T20:25:04.766Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-03T20:25:05.293Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-03T20:25:05.299Z"}
+{"level":"info","message":"Product added to cart for user: admin","timestamp":"2016-11-03T20:25:08.783Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-03T20:25:08.800Z"}
+{"level":"info","message":"Product added to cart for user: admin","timestamp":"2016-11-03T20:25:30.546Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-03T20:25:30.565Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-03T20:42:56.739Z"}
+{"level":"info","message":"New user created with username: v@v.com","timestamp":"2016-11-03T20:43:17.978Z"}
+{"level":"info","message":"User Logged In: v@v.com","timestamp":"2016-11-03T20:43:28.112Z"}
+{"level":"info","message":"Shopping Cart pulled for user: v@v.com","timestamp":"2016-11-03T20:43:29.307Z"}
+{"level":"info","message":"All products Pulled from Database for user: v@v.com","timestamp":"2016-11-03T20:43:29.310Z"}
+{"level":"info","message":"Product added to cart for user: v@v.com","timestamp":"2016-11-03T20:43:31.220Z"}
+{"level":"info","message":"Shopping Cart pulled for user: v@v.com","timestamp":"2016-11-03T20:43:31.236Z"}
+{"level":"info","message":"Product added to cart for user: v@v.com","timestamp":"2016-11-03T20:43:33.840Z"}
+{"level":"info","message":"Shopping Cart pulled for user: v@v.com","timestamp":"2016-11-03T20:43:33.851Z"}
+{"level":"info","message":"Item removed from Shopping Cart for user: v@v.com","timestamp":"2016-11-03T20:43:36.606Z"}
+{"level":"info","message":"Session destroyed for user: v@v.com","timestamp":"2016-11-03T20:44:54.115Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-03T20:45:44.130Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-03T20:45:44.931Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-03T20:45:44.934Z"}
+{"level":"info","message":"Item removed from Shopping Cart for user: admin","timestamp":"2016-11-03T20:45:47.586Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-03T20:45:47.606Z"}
+{"level":"info","message":"Item removed from Shopping Cart for user: admin","timestamp":"2016-11-03T20:45:48.736Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-03T20:45:48.750Z"}
+{"level":"info","message":"Product added to cart for user: admin","timestamp":"2016-11-03T20:45:50.448Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-03T20:45:50.467Z"}
+{"level":"info","message":"Item removed from Shopping Cart for user: admin","timestamp":"2016-11-03T20:45:52.002Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-03T20:45:52.016Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-03T21:51:58.266Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-03T21:52:02.907Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-03T21:52:03.420Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-03T21:52:03.448Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-03T22:52:56.863Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-03T22:53:03.264Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-03T22:53:04.142Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-03T22:53:04.146Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-03T22:57:30.347Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-03T22:57:37.734Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-03T22:57:38.339Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-03T22:57:38.343Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-03T23:02:19.962Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-03T23:02:27.064Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-03T23:02:27.775Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-03T23:02:27.778Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-03T23:04:35.425Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-03T23:04:40.242Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-03T23:04:40.613Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-03T23:04:40.618Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-03T23:06:12.320Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-03T23:06:18.462Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-03T23:06:19.246Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-03T23:06:19.249Z"}
+{"level":"info","message":"User: admin placed a Bid of: 949 on Item with ID: admin_1_23_51_1_424","timestamp":"2016-11-03T23:06:24.783Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-03T23:06:24.807Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-03T23:06:43.488Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-03T23:06:43.490Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-03T23:06:58.771Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-03T23:43:47.711Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-03T23:43:48.318Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-03T23:43:48.326Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-11-03T23:43:51.249Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-03T23:47:08.589Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-03T23:47:09.208Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-03T23:47:09.211Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-11-03T23:47:12.535Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-04T00:01:40.874Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-04T00:01:46.487Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-04T00:01:47.170Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T00:01:47.173Z"}
+{"level":"info","message":"Product added to cart for user: admin","timestamp":"2016-11-04T00:01:50.119Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T00:01:50.137Z"}
+{"level":"info","message":"Item removed from Shopping Cart for user: admin","timestamp":"2016-11-04T00:01:53.055Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T00:01:53.070Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-11-04T00:01:54.993Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-04T00:04:06.797Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-04T00:04:32.266Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-04T00:04:32.941Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T00:04:32.946Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-11-04T00:04:35.018Z"}
+{"level":"info","message":"Shipping Address changed for user: admin","timestamp":"2016-11-04T00:04:45.453Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-04T00:09:24.273Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-04T01:12:53.472Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-04T01:12:53.992Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T01:12:53.997Z"}
+{"level":"info","message":"Product added to cart for user: admin","timestamp":"2016-11-04T01:12:55.876Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T01:12:55.896Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-04T02:05:30.748Z"}
+{"level":"info","message":"All products Pulled from Database for user: undefined","timestamp":"2016-11-04T02:05:39.162Z"}
+{"level":"info","message":"Shopping Cart pulled for user: undefined","timestamp":"2016-11-04T02:05:39.164Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-04T03:07:12.521Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-04T03:07:13.346Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T03:07:13.350Z"}
+{"level":"info","message":"Item removed from Shopping Cart for user: admin","timestamp":"2016-11-04T03:07:16.726Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T03:07:16.742Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-11-04T03:07:24.250Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-04T03:09:09.429Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-04T03:09:15.020Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-04T03:09:16.121Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T03:09:16.124Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-11-04T03:09:18.240Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-04T03:16:17.415Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-04T03:16:22.076Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-04T03:16:22.615Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T03:16:22.617Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-11-04T03:16:24.438Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-04T03:19:01.586Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-04T03:19:06.938Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-04T03:19:07.446Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T03:19:07.447Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-11-04T03:19:09.259Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-04T03:24:24.972Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-04T03:24:40.693Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T03:24:41.204Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-04T03:24:41.206Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-11-04T03:24:42.832Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-04T03:25:52.154Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-04T03:25:58.466Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-04T03:25:58.918Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T03:25:58.929Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-11-04T03:26:00.530Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-04T03:35:18.173Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-04T03:35:57.920Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T03:35:58.497Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-04T03:35:58.499Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-11-04T03:36:00.541Z"}
+{"level":"info","message":"User: admin purchased his cart with credit cart: 1111111111111111","timestamp":"2016-11-04T03:36:14.113Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-11-04T03:36:14.169Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-11-04T03:36:14.183Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-11-04T03:36:14.194Z"}
+{"level":"info","message":"Advertisement posted for user: admin with Item ID: undefined","timestamp":"2016-11-04T03:37:40.266Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-04T03:37:40.270Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T03:37:40.273Z"}
+{"level":"info","message":"Advertisement posted for user: admin with Item ID: undefined","timestamp":"2016-11-04T03:38:10.583Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-04T03:38:10.597Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T03:38:10.602Z"}
+{"level":"info","message":"Item removed from Shopping Cart for user: admin","timestamp":"2016-11-04T03:38:13.072Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T03:38:13.081Z"}
+{"level":"info","message":"Product added to cart for user: admin","timestamp":"2016-11-04T03:38:16.629Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T03:38:16.643Z"}
+{"level":"info","message":"Product added to cart for user: admin","timestamp":"2016-11-04T03:38:18.931Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T03:38:18.950Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-11-04T03:38:22.136Z"}
+{"level":"info","message":"User: admin purchased his cart with credit cart: 3333333333333333","timestamp":"2016-11-04T03:38:35.128Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-11-04T03:38:35.154Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-11-04T03:38:35.163Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-11-04T03:38:35.179Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-04T03:39:37.959Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T03:39:37.966Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-11-04T04:07:28.737Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-11-04T04:07:28.747Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-11-04T04:07:28.756Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-04T04:08:32.887Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-04T04:08:37.486Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-04T04:08:37.998Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T04:08:38.002Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-11-04T04:08:41.998Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-11-04T04:08:42.015Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-11-04T04:08:42.017Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-04T04:14:04.597Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-04T04:14:11.435Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T04:14:11.880Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-04T04:14:11.883Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-11-04T04:14:13.773Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-11-04T04:14:13.791Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-11-04T04:14:13.793Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-04T04:14:33.633Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-04T04:18:14.816Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-04T04:18:15.315Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T04:18:15.318Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-11-04T04:18:17.821Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-11-04T04:18:17.824Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-11-04T04:18:17.825Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-04T04:19:56.745Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-04T04:20:16.017Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-04T04:20:16.528Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T04:20:16.532Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-11-04T04:20:18.463Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-11-04T04:20:18.467Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-11-04T04:20:18.469Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-04T04:21:08.076Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-04T04:21:12.394Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-04T04:21:12.760Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T04:21:12.764Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-11-04T04:21:14.635Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-11-04T04:21:14.640Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-11-04T04:21:14.641Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-04T04:21:17.956Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-04T04:21:38.771Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-04T04:21:39.412Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T04:21:39.418Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-11-04T04:21:41.433Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-11-04T04:21:41.435Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-11-04T04:21:41.437Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-04T04:24:11.208Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-04T04:24:34.939Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-04T04:24:35.597Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T04:24:35.601Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-04T04:25:56.227Z"}
+{"level":"info","message":"User Logged In: admin","timestamp":"2016-11-04T04:26:18.990Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-04T04:26:19.625Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T04:26:19.628Z"}
+{"level":"info","message":"User: admin placed a Bid of: 800 on Item with ID: admin_1_23_51_1_424","timestamp":"2016-11-04T04:26:24.522Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T04:26:24.543Z"}
+{"level":"info","message":"Product added to cart for user: admin","timestamp":"2016-11-04T04:26:27.317Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-04T04:26:27.340Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-11-04T04:26:33.931Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-11-04T04:26:33.933Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-11-04T04:26:33.934Z"}
+{"level":"info","message":"Shipping Address changed for user: admin","timestamp":"2016-11-04T04:28:42.704Z"}

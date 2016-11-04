@@ -262,7 +262,7 @@ app.controller("allProducts", function($scope,$http,$location){
 			else
 				{
 					$scope.shoppingCart = data.shoppingCartProducts;
-					alert($scope.shoppingCart.item_id);
+					//alert($scope.shoppingCart.item_id);
 				}
 				//Making a get call to the '/redirectToHomepage' API
 				//window.location.assign("/homepage"); 
@@ -307,13 +307,15 @@ app.controller("allProducts", function($scope,$http,$location){
 		$scope.selectedItem = product.item_id;
 		$scope.selectedItemName = product.item_name;
 		$scope.selectedItemPrice = product.item_price;
+		$scope.selectedItemDescription = product.item_description;
 		$http({
 			method : "POST",
 			url : '/addToCart',
 			data : {
 				"itemId" : $scope.selectedItem,
 				"itemName" : $scope.selectedItemName,
-				"itemPrice" : $scope.selectedItemPrice
+				"itemPrice" : $scope.selectedItemPrice,
+				"itemDescription" : $scope.selectedItemDescription
 			}
 		}).success(function(data) {
 			//checking the response data for statusCode
@@ -440,7 +442,7 @@ app.controller("checkoutAddress",function($scope,$http,$location){
 			}
 			else
 				{
-					$scope.userAddress = data.userDetails[0];
+					$scope.userAddress = data.userDetails;
 					$scope.address = $scope.userAddress.address;
 					$scope.city = $scope.userAddress.city;
 					$scope.state = $scope.userAddress.state;
@@ -592,7 +594,7 @@ app.controller("profileController",function($scope,$http){
 			}
 			else
 				{
-					$scope.userAddress = data.userDetails[0];
+					$scope.userAddress = data.userDetails;
 					$scope.address = $scope.userAddress.address;
 					$scope.city = $scope.userAddress.city;
 					$scope.state = $scope.userAddress.state;

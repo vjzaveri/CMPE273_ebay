@@ -1,5 +1,6 @@
 var mysql = require('./mysql');
 var fileLogger = require('winston');
+var mq_client = require('../rpc/client');
 
 
 
@@ -7,6 +8,30 @@ exports.checkoutAddress = function(req,res)
 {
 	var fetchUserDetails = "SELECT * FROM customer WHERE email='"+req.session.username+"'";
 
+	var msg_payload = {"email":req.session.username};
+
+	mq_client.make_request('ebay_checkoutAddress_queue', msg_payload, function(err, results){
+		if(err){
+			throw err;
+		}
+		else 
+		{
+			if(results.code == 200){
+
+				fileLogger.info("Address details fetched for user: "+req.session.username);
+				console.log("User Details Fetched");
+				json_responses = {"statusCode" : 200, "userDetails" : results.data};
+				console.log(results.data);
+			
+				res.send(json_responses);
+			}
+			else {    
+				json_responses = {"statusCode" : 401};
+				res.send(json_responses);
+			}
+		} 
+	});
+/*
 	mysql.runQuery(function(err,results){
 		if(!err)
 		{
@@ -25,6 +50,7 @@ exports.checkoutAddress = function(req,res)
 			res.send(json_responses);
 		}
 	},fetchUserDetails);
+*/
 }
 
 exports.editAddress = function(req,res)
@@ -36,8 +62,31 @@ exports.editAddress = function(req,res)
 	var zip = req.param("zip");
 	var cellNum = req.param("cellNum");
 	
-	var editAddress = "UPDATE customer SET address='"+address+"', city='"+city+"', state='"+state+"', country='"+country+"', zip='"+zip+"', cellphone_number='"+cellNum+"' WHERE email='"+req.session.username+"'";
 
+	var msg_payload = {"email":req.session.username, "address":address, "city":city, "state":state, "country":country, "zip":zip, "cellNum":cellNum};
+
+	//var editAddress = "UPDATE customer SET address='"+address+"', city='"+city+"', state='"+state+"', country='"+country+"', zip='"+zip+"', cellphone_number='"+cellNum+"' WHERE email='"+req.session.username+"'";
+
+	mq_client.make_request('ebay_editAddress_queue', msg_payload, function(err, results){
+		if(err){
+			throw err;
+		}
+		else 
+		{
+			if(results.code == 200){
+
+			fileLogger.info("Shipping Address changed for user: "+req.session.username);
+			console.log("User Details Edited");
+			json_responses = {"statusCode" : 200};			
+			res.send(json_responses);
+			}
+			else {    
+				json_responses = {"statusCode" : 401};
+				res.send(json_responses);
+			}
+		} 
+	});
+/*
 	mysql.runQuery(function(err,results){
 		if(!err)
 		{
@@ -52,6 +101,7 @@ exports.editAddress = function(req,res)
 			res.send(json_responses);
 		}
 	},editAddress);
+*/
 }
 
 exports.checkoutShoppingCart = function(req,res)
@@ -130,8 +180,26 @@ exports.payAndPurchase = function(req,res)
 	else
 	{
 
-	var getShoppingCart = "SELECT * FROM shopping_cart WHERE email = '"+username+"'";
+	var msg_payload = {"email":username, "cardNumber": cardNumber};
 
+	//var getShoppingCart = "SELECT * FROM shopping_cart WHERE email = '"+username+"'";
+
+
+	mq_client.make_request('ebay_payAndPurchase_queue', msg_payload, function(err, results){
+		if(!err)
+		{
+			fileLogger.info("User: "+req.session.username+" purchased his cart with credit cart: "+cardNumber);
+			json_responses = {"statusCode" : 200};
+			res.send(json_responses);
+		}
+		else
+		{
+			json_responses = {"statusCode" : 401};
+			res.send(json_responses);
+		}
+	});
+
+/*
 	mysql.runQuery(function(err,results){
 		if(!err)
 		{
@@ -183,6 +251,6 @@ exports.payAndPurchase = function(req,res)
 		}
 
 	},getShoppingCart);
-
+*/
 	}
 }

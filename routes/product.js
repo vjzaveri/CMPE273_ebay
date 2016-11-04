@@ -296,9 +296,10 @@ exports.addToCart = function(req,res)
 	var itemPrice = req.param("itemPrice");
 	var email = req.session.username;
 	var quantity = 1;
+	var itemDescription = req.param("itemDescription");
 	var addToCart = "INSERT INTO shopping_cart (email, item_id, quantity) VALUES ('"+email+"', '"+itemId+"', '"+quantity+"');";
 
-	var msg_payload = {"email":email, "itemId": itemId, "itemName":itemName, "itemPrice":itemPrice, "quantity":quantity};
+	var msg_payload = {"email":email, "itemId": itemId, "itemName":itemName, "itemDescription":itemDescription, "itemPrice":itemPrice, "quantity":quantity};
 
 	mq_client.make_request('ebay_addToCart_queue', msg_payload, function(err,results){
 		if(err){
@@ -395,8 +396,30 @@ exports.shoppingCart = function(req,res)
 exports.removeFromCart = function(req,res)
 {
 	var reqCartId = req.param("temp");
-	var removeItemFromCart = "DELETE FROM shopping_cart WHERE cart_id='"+reqCartId+"'";
+	//var removeItemFromCart = "DELETE FROM shopping_cart WHERE cart_id='"+reqCartId+"'";
 
+	var msg_payload = {"email":req.session.username, "cartId": reqCartId};
+
+	mq_client.make_request('ebay_removeFromCart_queue', msg_payload, function(err, results){
+		if(err){
+			throw err;
+		}
+		else 
+		{
+			if(results.code == 200){
+				fileLogger.info("Item removed from Shopping Cart for user: "+req.session.username);
+				//console.log("Shopping Cart:::::"+results.shopping_cart.item_id);
+				json_responses = {"statusCode" : 200};
+				res.send(json_responses);
+			}
+			else {    
+				json_responses = {"statusCode" : 401};
+				res.send(json_responses);
+			}
+		} 
+	});
+
+/*
 	mysql.runQuery(function(err,results){
 		if(!err)
 		{
@@ -414,6 +437,7 @@ exports.removeFromCart = function(req,res)
 			res.send(json_responses);
 		}
 	},removeItemFromCart);
+*/
 }
 
 exports.placeBid = function(req,res)
@@ -421,9 +445,30 @@ exports.placeBid = function(req,res)
 	var tempItemId = req.param("itemId");
 	var maxBid = req.param("maxBid");
 	var json_responses;
-	var bidQuery = "UPDATE products SET max_bid='"+maxBid+"', max_bidder='"+req.session.username+"' WHERE item_id='"+tempItemId+"'";
-	var oldBid = "SELECT max_bid FROM products WHERE item_id='"+tempItemId+"'";
+	//var bidQuery = "UPDATE products SET max_bid='"+maxBid+"', max_bidder='"+req.session.username+"' WHERE item_id='"+tempItemId+"'";
+	//var oldBid = "SELECT max_bid FROM products WHERE item_id='"+tempItemId+"'";
 
+	var msg_payload = {"email":req.session.username, "itemId": tempItemId, "maxBid": maxBid};
+
+	mq_client.make_request('ebay_placeBid_queue', msg_payload, function(err, results){
+		if(err){
+			throw err;
+		}
+		else 
+		{
+			if(results.code == 200){
+				fileLogger.info("User: "+req.session.username+" placed a Bid of: "+maxBid+" on Item with ID: "+tempItemId);
+				//console.log("Shopping Cart:::::"+results.shopping_cart.item_id);
+				json_responses = {"statusCode" : 200};
+				res.send(json_responses);
+			}
+			else {    
+				json_responses = {"statusCode" : 401};
+				res.send(json_responses);
+			}
+		} 
+	});
+/*
 	fileLogger.info("User: "+req.session.username+" placed a Bid of: "+maxBid+" on Item with ID: "+tempItemId);
 
 	mysql.runQuery(function(err,results){
@@ -453,6 +498,8 @@ exports.placeBid = function(req,res)
 			res.send(json_responses);
 		}
 	},oldBid);
+
+*/
 }
 
 

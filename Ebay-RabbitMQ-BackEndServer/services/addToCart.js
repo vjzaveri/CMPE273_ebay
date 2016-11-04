@@ -11,6 +11,7 @@ function handle_request(msg, callback){
 	var itemPrice = msg.itemPrice;
 	var email = msg.email;
 	var quantity = msg.quantity;
+	var itemDescription = msg.itemDescription;
 	//var addToCart = "INSERT INTO shopping_cart (email, item_id, quantity) VALUES ('"+email+"', '"+itemId+"', '"+quantity+"');";
 
 	//var msg_payload = {"email":email, "itemId": itemId, "itemName":itemName, "itemPrice":itemPrice, "quantity":quantity};
@@ -36,7 +37,7 @@ function handle_request(msg, callback){
 		console.log('Connected to mongo at: ' + mongoURL);
 		var coll = mongo.collection('customer');
 
-		coll.update({email: email}, {$push:{shopping_cart:{cart_id:cartId, item_id:itemId, item_name: itemName, item_price: itemPrice, quantity:quantity}}}, function(err, user){
+		coll.update({email: email}, {$push:{shopping_cart:{cart_id:cartId, item_id:itemId, item_name: itemName, item_description:itemDescription, item_price: itemPrice, quantity:quantity}}}, function(err, user){
 			if (user) {
 				res.code = "200";
 				res.value = "Success";
