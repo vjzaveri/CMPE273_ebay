@@ -7,6 +7,8 @@ var mq_client = require('../rpc/client');
 var passport = require('passport');
 var mongo = require("./mongo");
 var mongoURL = "mongodb://localhost:27017/ebay";
+var assert = require('assert');
+var expect = require('chai').expect;
 
 var fileLogger = require('winston');
 
@@ -53,6 +55,10 @@ exports.checkLogin = function(req, res, next) {
 				//console.log("New User Created");
 				//json_responses = {"statusCode" : 200};
 		json_responses = {"statusCode" : 200, "lastLogInTime" : lastLogInTime};
+		//it('should return 200 when it is a valid login', function(){
+		//	expect(200).to.equal(json_responses.statusCode);
+			//assert.equal(200, json_responses.statusCode);
+		//});
 		//console.log(lastLogInTime+"hehehevhhvjhvhjvjv");
 		res.send(json_responses);
     }

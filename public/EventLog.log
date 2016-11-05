@@ -21761,3 +21761,33 @@
 {"level":"info","message":"All products Pulled from Database for user: undefined","timestamp":"2016-11-05T05:20:12.045Z"}
 {"level":"info","message":"All products Pulled from Database for user: undefined","timestamp":"2016-11-05T05:20:12.054Z"}
 {"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-05T05:34:04.153Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-05T08:18:53.453Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-05T08:18:53.461Z"}
+{"level":"info","message":"Item removed from Shopping Cart for user: admin","timestamp":"2016-11-05T08:18:56.823Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-05T08:18:56.844Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-05T08:18:59.243Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-05T09:21:33.029Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-05T09:21:33.033Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-05T09:24:38.938Z"}
+{"level":"info","message":"New user created with username: rhythmzaveri@gmail.com","timestamp":"2016-11-05T09:24:58.711Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-05T09:27:55.379Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-05T09:27:55.386Z"}
+{"level":"info","message":"Advertisement posted for user: admin with Item ID: undefined","timestamp":"2016-11-05T09:28:21.809Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-05T09:28:21.824Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-05T09:28:21.826Z"}
+{"level":"info","message":"Product added to cart for user: admin","timestamp":"2016-11-05T09:32:33.564Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-05T09:32:33.578Z"}
+{"level":"info","message":"Item removed from Shopping Cart for user: admin","timestamp":"2016-11-05T09:35:36.162Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-05T09:35:36.175Z"}
+{"level":"info","message":"User: admin placed a Bid of: 1001 on Item with ID: admin_1_23_51_1_424","timestamp":"2016-11-05T09:36:44.579Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-05T09:36:44.589Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-11-05T09:38:27.837Z"}
+{"level":"info","message":"Shipping Address changed for user: admin","timestamp":"2016-11-05T09:39:39.340Z"}
+{"level":"info","message":"User: admin purchased his cart with credit cart: 1234567891012131","timestamp":"2016-11-05T09:41:38.576Z"}
+{"level":"info","message":"Selling details of user: admin pulled.","timestamp":"2016-11-05T09:41:38.627Z"}
+{"level":"info","message":"Purchase details of user: admin pulled.","timestamp":"2016-11-05T09:41:38.630Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-11-05T09:41:38.632Z"}
+{"level":"info","message":"Session destroyed for user: admin","timestamp":"2016-11-05T09:48:23.310Z"}
+{"level":"info","message":"All products Pulled from Database for user: admin","timestamp":"2016-11-05T09:51:41.956Z"}
+{"level":"info","message":"Shopping Cart pulled for user: admin","timestamp":"2016-11-05T09:51:41.959Z"}
+{"level":"info","message":"Address details fetched for user: admin","timestamp":"2016-11-05T09:51:43.826Z"}
