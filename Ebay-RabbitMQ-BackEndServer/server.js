@@ -16,7 +16,7 @@ var payAndPurchase = require('./services/payAndPurchase');
 var getSoldItems = require('./services/getSoldItems');
 var getPurchasedItems = require('./services/getPurchasedItems');
 
-
+//require('./services/mongo')();
 
 
 var mongoSessionConnectURL = "mongodb://localhost:27017/ebay";
